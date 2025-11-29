@@ -100,53 +100,6 @@ export default function ClientHome({ therapies, therapists }: ClientHomeProps) {
                 </FloatingElement>
             </section>
 
-            {/* Dual Purpose Section */}
-            <AnimatedSection className="relative py-24 px-6 bg-brand-50 overflow-hidden">
-                {/* Background Pattern - Soft Organic Blobs */}
-                <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-brown-100 to-brand-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 -translate-x-1/3 -translate-y-1/3" />
-                    <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-brand-100 to-brown-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 translate-x-1/3 translate-y-1/3" />
-                </div>
-
-                <div className="relative z-10 container mx-auto max-w-6xl">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* For Clients */}
-                        <TiltCard className="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-brown-100 hover:border-brown-300">
-                            <h2 className="text-3xl font-serif mb-4 text-brand-900">Looking for a Therapist?</h2>
-                            <p className="text-brand-700 mb-6 font-medium">
-                                Browse our team of qualified professionals offering counselling, psychotherapy, hypnotherapy, and more.
-                                Find the right support for your journey to wellness.
-                            </p>
-                            <div className="flex flex-col gap-3">
-                                <AnimatedButton href="/therapies" variant="primary" size="md" className="w-full">
-                                    View All Services
-                                </AnimatedButton>
-                                <AnimatedButton href="/meet-the-team" variant="outline" size="md" className="w-full">
-                                    Meet Our Team
-                                </AnimatedButton>
-                            </div>
-                        </TiltCard>
-
-                        {/* For Therapists */}
-                        <TiltCard className="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-brown-100 hover:border-brown-300">
-                            <h2 className="text-3xl font-serif mb-4 text-brand-900">Therapist Looking to Rent?</h2>
-                            <p className="text-brand-700 mb-6 font-medium">
-                                We offer soundproofed therapy rooms, flexible rental options, and a welcoming space in the heart of Poundbury.
-                                Perfect for 1-1 sessions, workshops, or group supervision.
-                            </p>
-                            <div className="flex flex-col gap-3">
-                                <AnimatedButton href="/hire-therapy-room-dorchester" variant="primary" size="md" className="w-full">
-                                    View Room Options
-                                </AnimatedButton>
-                                <AnimatedButton href="/contact-us" variant="outline" size="md" className="w-full">
-                                    Contact Us
-                                </AnimatedButton>
-                            </div>
-                        </TiltCard>
-                    </div>
-                </div>
-            </AnimatedSection>
-
             {/* CTA Section */}
             <AnimatedSection className="py-24 px-6 bg-brand-800 text-white relative overflow-hidden">
                 <motion.div
