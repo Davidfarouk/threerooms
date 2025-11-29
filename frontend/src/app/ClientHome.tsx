@@ -101,12 +101,12 @@ export default function ClientHome({ therapies, therapists }: ClientHomeProps) {
             </section>
 
             {/* CTA Section */}
-            <AnimatedSection className="py-24 px-6 bg-brand-800 text-white relative overflow-hidden">
+            <AnimatedSection className="py-24 px-6 bg-white relative overflow-hidden">
                 <motion.div
-                    className="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-12 transform translate-x-20"
+                    className="absolute top-0 right-0 w-1/3 h-full bg-brown-100/30 skew-x-12 transform translate-x-20"
                     animate={{
                         x: [0, 20, 0],
-                        opacity: [0.05, 0.1, 0.05]
+                        opacity: [0.3, 0.5, 0.3]
                     }}
                     transition={{
                         duration: 4,
@@ -120,7 +120,7 @@ export default function ClientHome({ therapies, therapists }: ClientHomeProps) {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-3xl md:text-4xl font-serif mb-6 text-white"
+                        className="text-3xl md:text-4xl font-serif mb-6 text-brand-900"
                     >
                         Ready to start your journey?
                     </motion.h2>
@@ -129,7 +129,7 @@ export default function ClientHome({ therapies, therapists }: ClientHomeProps) {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-lg text-brand-100 mb-10 font-light"
+                        className="text-lg text-brand-700 mb-10 font-light"
                     >
                         Whether you're seeking support or looking to establish your practice, we're here to help.
                     </motion.p>
@@ -140,10 +140,10 @@ export default function ClientHome({ therapies, therapists }: ClientHomeProps) {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
-                        <AnimatedButton href="/contact-us" variant="primary" size="lg" className="!bg-white !text-brand-800 hover:!bg-brand-50 border-2 border-white hover:border-brand-200 shadow-xl">
+                        <AnimatedButton href="/contact-us" variant="primary" size="lg">
                             Get in Touch
                         </AnimatedButton>
-                        <AnimatedButton href="/about-us" variant="outline" size="lg" className="bg-white/20 backdrop-blur-md border-2 border-white/40 text-white hover:bg-white/30 hover:border-white/60">
+                        <AnimatedButton href="/about-us" variant="outline" size="lg">
                             Learn More
                         </AnimatedButton>
                     </motion.div>
