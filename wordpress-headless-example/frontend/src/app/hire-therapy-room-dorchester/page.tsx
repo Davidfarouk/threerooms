@@ -20,13 +20,8 @@ export default async function HireRoomPage() {
             index === self.findIndex((o: any) => o.title === opt.title)
         ) : [];
     
-    // Fallback to hardcoded if no options from WordPress
-    const options = uniqueRentalOptions.length > 0 ? uniqueRentalOptions.map((opt: any) => ({
-        title: opt.title,
-        description: opt.description || '',
-        icon: opt.icon || '',
-        image: opt.image_url || opt.featured_image_url || '/resources/Larger Therapy Room + Therapy Couch.jpg',
-    })) : [
+    // Hardcoded fallback options with unique images
+    const fallbackOptions = [
         {
             title: '1-1 Therapy',
             description: 'We offer two soundproofed therapy rooms, which can be tailored to meet both the needs of talking & physical therapy. We provide a state-of-the-art electronic therapy plinth, offering adjustable features for Osteopathy, Physiotherapy, Massage and other Physical Therapies.',
@@ -46,6 +41,34 @@ export default async function HireRoomPage() {
             image: '/resources/Reception Desk.jpg',
         },
     ];
+
+    // Map WordPress options with smart fallback images
+    const options = uniqueRentalOptions.length > 0 ? uniqueRentalOptions.map((opt: any, index: number) => {
+        // Try WordPress image first
+        let imageUrl = opt.image_url || opt.featured_image_url;
+        
+        // If no WordPress image, match by title to get appropriate fallback
+        if (!imageUrl || imageUrl.trim() === '') {
+            const titleLower = (opt.title || '').toLowerCase();
+            if (titleLower.includes('1-1') || titleLower.includes('therapy') && !titleLower.includes('workshop')) {
+                imageUrl = '/resources/Larger Therapy Room + Therapy Couch.jpg';
+            } else if (titleLower.includes('workshop') || titleLower.includes('seminar') || titleLower.includes('supervision') || titleLower.includes('group')) {
+                imageUrl = '/resources/The Rooms waiting room sofa & desk.jpg';
+            } else if (titleLower.includes('entire') || titleLower.includes('clinic') || titleLower.includes('full')) {
+                imageUrl = '/resources/Reception Desk.jpg';
+            } else {
+                // Default fallback based on index
+                imageUrl = fallbackOptions[index % fallbackOptions.length]?.image || '/resources/Larger Therapy Room + Therapy Couch.jpg';
+            }
+        }
+        
+        return {
+            title: opt.title,
+            description: opt.description || '',
+            icon: opt.icon || fallbackOptions[index % fallbackOptions.length]?.icon || '',
+            image: imageUrl,
+        };
+    }) : fallbackOptions;
 
 
     return (
@@ -71,7 +94,7 @@ export default async function HireRoomPage() {
                 <div className="container mx-auto max-w-6xl">
                     <h2 className="text-4xl font-serif text-center mb-12 text-brand-900">Rental Options</h2>
                     <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {options.map((option, index) => (
+                        {options.map((option: any, index: number) => (
                             <TiltCard key={`${option.title}-${index}`} delay={index * 0.1}>
                                 <AnimatedCard
                                     delay={index * 0.1}

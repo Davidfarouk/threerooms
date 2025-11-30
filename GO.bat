@@ -9,11 +9,11 @@ echo This will do EVERYTHING:
 echo   1. Setup WordPress plugin
 echo   2. Activate plugin (automated)
 echo   3. Flush permalinks (automated)
-echo   4. Import all content
-echo   5. Update services from text files
-echo   6. Import new resources data
-echo   7. Copy resources
-echo   8. Upload all media to WordPress
+echo   4. Import services and therapists from JSON
+echo   5. Import logos, gallery, and rental options
+echo   6. Copy resources
+echo   7. Upload all media to WordPress
+echo   8. Link images to content
 echo   9. Start the website
 echo.
 pause
@@ -70,48 +70,11 @@ if %ERRORLEVEL% NEQ 0 (
 echo.
 
 echo ========================================
-echo   STEP 2/9: IMPORTING CONTENT
+echo   STEP 2/9: IMPORTING NEW RESOURCES
 echo ========================================
 echo.
 
-echo [5/9] Importing initial content...
-docker cp complete-import.php wordpress_site:/var/www/html/complete-import.php
-if %ERRORLEVEL% NEQ 0 (
-    echo ERROR: Failed to copy import script
-    pause
-    exit /b 1
-)
-docker exec wordpress_site php /var/www/html/complete-import.php
-echo [OK] Initial content imported
-echo.
-
-echo ========================================
-echo   STEP 3/9: UPDATING FROM TEXT FILES
-echo ========================================
-echo.
-
-echo [6/9] Updating services from text files...
-if exist "wordpress-headless-example\frontend\public\resources" (
-    docker exec wordpress_site mkdir -p /var/www/html/temp-resources
-    docker cp "wordpress-headless-example\frontend\public\resources\Reflexology.txt" wordpress_site:/var/www/html/temp-resources/Reflexology.txt 2>nul
-    docker cp "wordpress-headless-example\frontend\public\resources\Hypnotherapy.txt" wordpress_site:/var/www/html/temp-resources/Hypnotherapy.txt 2>nul
-    docker cp "wordpress-headless-example\frontend\public\resources\Podiatry.txt" wordpress_site:/var/www/html/temp-resources/Podiatry.txt 2>nul
-    docker cp "wordpress-headless-example\frontend\public\resources\alexander techbique.txt" wordpress_site:/var/www/html/temp-resources/"alexander techbique.txt" 2>nul
-    docker cp "wordpress-headless-example\frontend\public\resources\talking therapy.txt" wordpress_site:/var/www/html/temp-resources/"talking therapy.txt" 2>nul
-    docker cp update-services-from-files.php wordpress_site:/var/www/html/update-services-from-files.php
-    docker exec wordpress_site php /var/www/html/update-services-from-files.php
-    echo [OK] Services updated and therapists linked
-) else (
-    echo [SKIP] Optimized resources folder not found, skipping text file update
-)
-echo.
-
-echo ========================================
-echo   STEP 4/9: IMPORTING NEW RESOURCES
-echo ========================================
-echo.
-
-echo [4/9] Importing new resources data...
+echo [5/9] Importing new resources data (services and therapists)...
 if exist "new resources\therapies_by_service.json" (
     docker exec wordpress_site mkdir -p /var/www/html/temp-resources
     docker cp "new resources\therapies_by_service.json" wordpress_site:/var/www/html/temp-resources/therapies_by_service.json 2>nul
@@ -124,20 +87,24 @@ if exist "new resources\therapies_by_service.json" (
 )
 echo.
 
-echo [4.5/9] Importing existing content (logos, gallery, rental options)...
+echo [6/9] Importing existing content (logos, gallery, rental options)...
 docker cp import-existing-content.php wordpress_site:/var/www/html/import-existing-content.php
 docker exec wordpress_site php /var/www/html/import-existing-content.php
+echo [OK] Existing content imported
+echo.
+
+echo [7/9] Linking images to content...
 docker cp link-images-to-content.php wordpress_site:/var/www/html/link-images-to-content.php
 docker exec wordpress_site php /var/www/html/link-images-to-content.php
-echo [OK] Existing content imported and images linked
+echo [OK] Images linked to content
 echo.
 
 echo ========================================
-echo   STEP 5/9: COPYING RESOURCES
+echo   STEP 3/9: COPYING RESOURCES
 echo ========================================
 echo.
 
-echo [5/9] Setting up optimized resources directory...
+echo [7/9] Setting up optimized resources directory...
 if not exist "wordpress-headless-example\frontend\public" mkdir "wordpress-headless-example\frontend\public"
 if not exist "wordpress-headless-example\frontend\public\resources" mkdir "wordpress-headless-example\frontend\public\resources"
 if not exist "wordpress-headless-example\frontend\public\resources\Therapist Headshots" mkdir "wordpress-headless-example\frontend\public\resources\Therapist Headshots"
@@ -181,11 +148,11 @@ echo [INFO] - Other images and files: wordpress-headless-example\frontend\public
 echo.
 
 echo ========================================
-echo   STEP 6/9: UPLOAD MEDIA TO WORDPRESS
+echo   STEP 4/9: UPLOAD MEDIA TO WORDPRESS
 echo ========================================
 echo.
 
-echo [6/9] Uploading all media to WordPress Media Library...
+echo [9/9] Uploading all media to WordPress Media Library...
 if exist "wordpress-headless-example\frontend\public\resources" (
     echo [INFO] Copying resources to WordPress container...
     docker exec wordpress_site mkdir -p /var/www/html/temp-resources-upload
@@ -199,11 +166,11 @@ if exist "wordpress-headless-example\frontend\public\resources" (
 echo.
 
 echo ========================================
-echo   STEP 7/9: SETUP FRONTEND
+echo   STEP 5/9: SETUP FRONTEND
 echo ========================================
 echo.
 
-echo [7/9] Installing dependencies and clearing cache...
+echo [9/9] Installing dependencies and clearing cache...
 cd wordpress-headless-example\frontend
 
 REM Stop any running Next.js processes
@@ -251,11 +218,11 @@ docker exec wordpress_site php -r "define('WP_USE_THEMES', false); require('/var
 
 echo.
 echo ========================================
-echo   STEP 8/9: STARTING SERVICES
+echo   STEP 6/9: STARTING SERVICES
 echo ========================================
 echo.
 
-echo [8/9] Checking WordPress...
+echo Starting WordPress...
 docker ps --filter "name=wordpress_site" --format "{{.Names}}" | findstr /C:"wordpress_site" >nul
 if %ERRORLEVEL% NEQ 0 (
     echo Starting WordPress container...
@@ -267,7 +234,7 @@ if %ERRORLEVEL% NEQ 0 (
 echo [OK] WordPress: http://localhost:8080
 echo.
 
-echo [9/9] Starting Next.js Frontend...
+echo Starting Next.js Frontend...
 echo This will open in a new window...
 echo.
 cd wordpress-headless-example\frontend
