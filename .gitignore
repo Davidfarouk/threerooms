@@ -1,0 +1,89 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Production
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Docker
+wordpress-headless-example/wordpress/wp-content/
+wordpress-headless-example/wordpress/mysql/
+
+# WordPress
+wp-config.php
+.htaccess
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Temporary/Utility Scripts (keep main ones)
+# Keep: GO.bat, the-rooms-architecture.php, import scripts
+# Remove: check-import-status.php, verify-*.php, list scripts
+
+# Documentation (keep README.md, remove others)
+# Remove: All other .md files except README.md
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ZIP files
+*.zip
+
+# Excel files (source data, not needed in repo)
+*.xlsx
+*.xls
+
+# Image optimization scripts (temporary)
+optimize_images.py
+optimize_images_aggressive.py
+
+# Media lists
+wordpress-media-list.txt
+
+# Brand assets (if large)
+brand color.jpeg
+

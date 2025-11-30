@@ -1,0 +1,520 @@
+{
+  "clinic": {
+    "name": "The Rooms Poundbury",
+    "type": "Complementary Health Clinic",
+    "address": "1 Ringhill St, Poundbury, Dorchester, DT1 3TL",
+    "website": "www.theroomspoundbury.co.uk"
+  },
+  "therapists": [
+    {
+      "name": "Dr Carole Deighton",
+      "role": "Reflexologist",
+      "qualifications": "PhD CPsychol MAR",
+      "qualifications_full": [
+        "PhD in Applied Psychology (specialism: workload and stress)",
+        "MSc in Applied Psychology",
+        "BSc (Hons) Psychology and Human Biology",
+        "CPsychol (Chartered Psychologist)",
+        "MAR (Member, Association of Reflexologists)",
+        "Level 5 Diploma in Applied Reflexology for Integrated Medicine (Distinction)",
+        "Approved Reflexology Lymph Drainage Practitioner (Sally Kay method)",
+        "Approved Reflexology for Menopause Practitioner (Sally Earlam method)",
+        "Limbic Reflexology CPD (Certification March 2026)",
+        "Indian Head Massage (FHT Accredited)",
+        "Acupressure Facial Therapy (AoR Approved)"
+      ],
+      "contact": {
+        "email": null,
+        "booking_url": "clinicalreflexologyandgrowth.as.me/",
+        "phone": "07502 405 230",
+        "website": "www.clinicalreflexologyandgrowth.co.uk"
+      },
+      "fees": {
+        "60_minutes": "£65",
+        "90_minutes": "£75"
+      },
+      "therapy_types": [
+        "Clinical Reflexology (Duopody method)",
+        "Reflexology Lymph Drainage",
+        "Reflexology for Menopause",
+        "Limbic Reflexology (from March 2026)",
+        "Group Workshops"
+      ],
+      "registrations": [
+        "CNHC Registered",
+        "Member, Association of Reflexologists (AoR)",
+        "Chartered Applied Psychologist",
+        "Chartered Scientist",
+        "Fellow (Retired), Chartered Institute of Ergonomics and Human Factors",
+        "British Psychological Society"
+      ],
+      "about": "I'm a Clinical Reflexologist and Chartered Work Psychologist, supporting people at all stages of life — from younger adults to older age groups. I'm passionate about helping my clients enhance their health and wellbeing through personalised Reflexology treatments and practical self-care advice. I have a particular interest in working with clients living with long-term health conditions, as well as those preparing for or recovering from surgery and ongoing medical treatment. My approach is integrated and collaborative, combining regular Clinical Reflexology with complementary therapeutic and medical care such as physiotherapy, osteopathy, acupuncture, counselling, or GP and hospital support. I'm always happy to work alongside healthcare providers to ensure joined-up support for each client's ongoing wellbeing. For example, by providing my clients with summary clinical reflexology notes to pass to other healthcare providers. Reflexology offers wide-ranging health benefits, including improved sleep, stress reduction, relaxation, mood balance and enhanced overall wellbeing. I practise the Duopody form of Reflexology, which treats both feet simultaneously to stimulate the body's natural healing processes and restore balance. I hold a Level 5 Diploma in Applied Reflexology for Integrated Medicine (OFQUAL regulated), incorporating advanced techniques designed to support those experiencing stress and anxiety, chronic illness, pain, or receiving palliative care. I am also an approved practitioner of the Sally Kay Reflexology Lymph Drainage (RLD) and Sally Earlam Reflexology for Menopause techniques, helping clients manage lymphoedema, autoimmune conditions and the challenges of menopause with greater comfort and confidence. My background in Psychology has led me to extend my learning to include Limbic Reflexology — a specialist form of Reflexology developed by Hamish Edgar. This approach focuses on reflex areas of the feet that relate to our emotional responses and how we experience pain. Limbic Reflexology will be available to both new and existing clients from March 2026. In addition to my core qualifications, I hold certificates in relaxation skills training, stress management, performance coaching, and health and wellbeing coaching. My learning from Indian Head Massage and Acupressure Facial Therapy also informs the relaxation and self-care guidance I share with clients, supporting both body and mind. Some private healthcare insurers provide cover for Reflexology treatments, and I'm happy to provide receipts to support clients with reimbursement where this applies. I offer small, interactive workshops that give participants the chance to explore practical self-care tools in a relaxed and friendly setting. Topics include facial acupressure, hand reflexology, relaxation techniques, coping and motivational imagery, and various stress-management practices."
+    },
+    {
+      "name": "Dr Linda Bolton",
+      "role": "Clinical Psychologist & Therapist",
+      "qualifications": "BSc(Econ), MSc, PGCE, D.Clin.Psy, CPsychol",
+      "qualifications_full": [
+        "BSc (Econ)",
+        "MSc",
+        "PGCE",
+        "D.Clin.Psy (Doctorate in Clinical Psychology)",
+        "CPsychol (Chartered Psychologist)",
+        "Chartered Clinical Psychologist",
+        "Over 30 years experience",
+        "Former Clinical Tutor at Exeter University"
+      ],
+      "contact": {
+        "email": "mlbolton@btinternet.com",
+        "phone": "07881857891"
+      },
+      "fees": {
+        "from": "£100"
+      },
+      "therapy_types": [
+        "EMDR",
+        "Acceptance and Commitment Therapy (ACT)",
+        "Cognitive Behaviour Therapy (CBT)",
+        "Systemic Family Work",
+        "Dyadic Developmental Psychotherapy (DDP)",
+        "Compassion Based Therapy"
+      ],
+      "registrations": [
+        "Chartered Clinical Psychologist"
+      ],
+      "about": "I am a highly experienced Chartered Clinical Psychologist and therapist and for over 30 years, have enjoyed working with adults, children, adolescents and their families, both within my roles in the NHS in Dorset, Somerset and Central London, and for the past 15 years, in my independent practice. I have also recently valued spending several years as a Clinical Tutor at the Exeter University training Clinical Psychologists. A main feature of my work has been around helping children, young people and adults with emotional distress, relationship and behavioural difficulties, who have found themselves feeling 'stuck'. The therapeutic work can involve working with individuals, parents, siblings, partners and families. I have expertise in helping those, who within their relationships, experience a range of difficulties including anxiety, obsessive compulsive disorder, sleep and eating difficulties, trauma (including PTSD), low self-esteem and low mood, and bereavement difficulties. Additional specific expertise in the impact of chronic health conditions such as Diabetes, CFS/ME and pain. As a Clinical Psychologist I have completed broad and rigorous training and am qualified in both assessment and a broad range of therapeutic psychological approaches, all of which have a strong evidence base. Given my extensive clinical experience I will also draw on my knowledge of those approaches that have worked well and have been helpful to others. I have particular interest in trauma, including developmental trauma, and in discovering the attachment styles and patterns of relating, that can continue throughout our lives. I recognise the great importance of the therapeutic relationship. I believe it is essential to provide you with a space where you feel comfortable, supported and safe to talk openly about any distress and where you feel listened to with compassion and empathy."
+    },
+    {
+      "name": "Dr Sharon Winward",
+      "role": "Consultant Clinical Psychologist",
+      "qualifications": "BSc, MSc, D.Clin.Psych",
+      "qualifications_full": [
+        "BSc Psychology (Honours)",
+        "MSc Health Psychology",
+        "D.Clin.Psych (Doctorate in Clinical Psychology)",
+        "Postgraduate Diploma in Cognitive Behaviour Therapy"
+      ],
+      "contact": {
+        "email": "sharonwinward@gmail.com",
+        "phone": "01305 232522"
+      },
+      "fees": {
+        "therapy_and_emdr": "£120"
+      },
+      "therapy_types": [
+        "EMDR",
+        "Acceptance and Commitment Therapy (ACT)",
+        "Cognitive Behaviour Therapy (CBT)",
+        "Compassion Based Approaches"
+      ],
+      "registrations": [
+        "HCPC Registered"
+      ],
+      "about": "I am a Consultant Clinical Psychologist, registered with Health and Care Professions Council, the statutory for our profession. I have over 20 years experience working for the NHS. I have an Honours Degree in Psychology; a Masters Degree in Health Psychology; a Doctorate in Clinical Psychology and a Postgraduate Diploma in Cognitive Behaviour Therapy. Since qualifying I have trained further in a number of different evidence based approaches: Eye Movement and Desensitisation Reprocessing (EMDR), Acceptance and Commitment Therapy (ACT), Cognitive Behaviour Therapy (CBT) and compassion based approaches. I work individually with adults and young adults. In coming to see a Psychologist, it is important to have a safe and confidential space, in order to find an approach that works for you. In meeting, we can start to make sense of your situation and find ways of making change for the better. We would work together collaboratively, to help you draw on your strengths, to allow you to move forward in your life, at your own pace, in your own time, and with support. Alongside my private practice, I also spend part of my week working in the NHS, leading a team of psychologists who work with adults accessing our community mental health teams. I work with people with a range of difficulties across the spectrum of severity, and provide supervision to the staff working alongside them. Expertise in the following areas - Depression, Anxiety, Generalised Anxiety and Social Anxiety, Obsessive Compulsive Disorder, Work Related Stress, Phobias and Fears, Life Transitions and Change, Sleep Issues, Post Traumatic Stress Disorder, Complex Post Traumatic Stress Disorder. I have a particular interest working with people recovering from trauma, whether that be a one off unexpected traumatic event, or more complex long standing issues such as childhood abuse and neglect."
+    },
+    {
+      "name": "Hilary Charman",
+      "role": "Hypnotherapist & Counsellor",
+      "qualifications": "DHHP SMACCPH",
+      "qualifications_full": [
+        "Diploma in Professional Hypnotherapy, Hypnosis, Counselling, and Coaching",
+        "Diploma in Addiction Therapy",
+        "Training in EFT and PRT for trauma"
+      ],
+      "contact": {
+        "email": "hvcharman@hotmail.com",
+        "phone": "07900652755"
+      },
+      "fees": {
+        "per_session": "£75"
+      },
+      "therapy_types": [
+        "Hypnotherapy",
+        "Counselling",
+        "Emotional Freedom Technique (EFT)",
+        "Picture Release Therapy (PRT)",
+        "Addiction Therapy"
+      ],
+      "registrations": [
+        "Senior Member ACCPH"
+      ],
+      "about": "I qualified as a Hypnotherapist in 2018 and since then I have seen hundreds of clients for multiple issues. I'm now pleased to be able to offer counselling alongside hypnotherapy, providing a safe, supportive space for you to talk, be heard and find clarity. I hold a diploma in Professional Hypnotherapy, Hypnosis, Counselling, and Coaching, and have received training in combining hypnotherapy, Emotional Freedom Technique (EFT) and Picture Release Therapy (PRT) for use with trauma. I also hold a Diploma in Addiction Therapy and have worked on a voluntary basis with EDP/REACH Drug and Alcohol Services where I provided hypnotherapy sessions for their clients. I've also written several articles for the West Dorset Magazine. I originally undertook my hypnotherapy training to help myself and it completely changed my life. Now, I see the potential in everyone and I'm passionate about helping people who seem to be 'stuck' in a behaviour or a situation so that they can free themselves from whatever is stopping them from moving forward with their lives. Because of my life's experiences, I have a deep understanding of many of the issues my clients come to me with. I truly believe that we all have the answers - and the power of healing and change - inside us. Hypnotherapy and counselling can be used to access that power, focus on how you want to be and help you unravel old negative beliefs and resolve painful experiences. I am a Senior Member of the ACCPH (Accredited Counsellors, Coaches, Psychotherapists and Hypnotherapists). As a Senior Member, I have signed up to their Standards and Quality Charter and agree to adhere to a strict code of conduct and ethics. I live and work in Poundbury, Dorchester, Dorset. I have four children - three grown ups and a teenager. I also have a grandson and a cat called Shaemus who enjoys watching wrestling."
+    },
+    {
+      "name": "Richard Cawte",
+      "role": "Clinical Hypnotherapist",
+      "qualifications": "BA(Hons), PDCH, MBSCH",
+      "qualifications_full": [
+        "BA (Hons)",
+        "Practitioner Diploma Clinical Hypnotherapy Level 5 (LCCH)",
+        "Practitioner Certificate Clinical Hypnotherapy (LCCH)",
+        "Stress Management Consultant",
+        "Certificate in Behavioural Self-Management",
+        "Certificate in Cognitive Behavioural Therapy"
+      ],
+      "contact": {
+        "email": "richardcawte@aol.co.uk",
+        "phone": "07894541796"
+      },
+      "fees": {
+        "from": "£85",
+        "initial_consultation": "FREE"
+      },
+      "therapy_types": [
+        "Clinical Hypnotherapy",
+        "Stress Management",
+        "Cognitive Behavioural Therapy",
+        "Behavioural Self-Management"
+      ],
+      "registrations": [
+        "MBSCH (British Society Clinical Hypnosis)"
+      ],
+      "about": "Confidential, qualified, experienced Clinical Hypnotherapist and Stress Management consultant. I specialise in treating anxiety, insomnia, stress, phobias, quitting smoking, pain, public speaking, exam nerves, sports performance and weight loss with Hypnotherapy. As well as regular weekdays, I offer Hypnotherapy appointments in the evenings and Saturday mornings. HOW MANY HYPNOTHERAPY SESSIONS? This is a common question and the answer is it's impossible to forecast an exact time-frame. It all depends on what changes you are looking to make. Hypnosis for insomnia can often be successfully addressed in as few as 3 sessions. Hypnotherapy for weight loss will take longer, not least because that is the only way to do loss weight healthily according to BMA guidelines. On average I will see my clients around 3-5 times. CAN I BOOK A FREE CONSULTATION? All therapies work best when there is trust and respect between both client and therapist, so having a free initial consultation to discuss how hypnotherapy can help you, helps us both to start this process."
+    },
+    {
+      "name": "Chris Piercy",
+      "role": "Hypnotherapist & Life Coach",
+      "qualifications": "BSc, DipHyp, GHQP",
+      "qualifications_full": [
+        "BSc",
+        "Anglo European College of Therapeutic Hypnosis Clinical Hypnotherapy",
+        "Practitioner Certificate in Neuro-Linguistic Programming (NLP)",
+        "NCFE Diploma Hypnotherapy",
+        "Accredited Practitioner, General Hypnotherapy Register"
+      ],
+      "contact": {
+        "email": "chris@gystcoaching.co.uk",
+        "phone": "07894792797"
+      },
+      "fees": {
+        "from": "£55",
+        "initial_consultation": "FREE"
+      },
+      "therapy_types": [
+        "Clinical Hypnotherapy",
+        "Life Coaching",
+        "CBT techniques",
+        "Neuro-Linguistic Programming (NLP)",
+        "Mindfulness",
+        "Relaxation therapy"
+      ],
+      "registrations": [
+        "GHQP (General Hypnotherapy Register)"
+      ],
+      "about": "I have been helping people overcome their issues since I qualified in 2014. I completed my training at the Anglo-European College of Clinical Hypnotherapy, and gained a Diploma in Clinical Hypnotherapy. I am also an Accredited Practitioner of The General Hypnotherapy Register. My particular areas of interest are self-confidence, anxiety, self-esteem, phobias, changing negative thinking and achieving life goals. I also hold a practitioner certificate in NLP (Neuro-Linguistic Programming). I use Cognitive Behavioural Therapy techniques combined with Hypnosis, Mindfulness and Relaxation. I suggest that on an initial basis 4 sessions would give a very good idea as to whether the therapy sessions together are being successful. I offer a free consultation call which can be done over the phone or as a video call. During this call you can discuss your life, the issue at has brought you to Hypnotherapy and, most importantly, see if I am the right therapist to help you. You are never tied into any contract or obligation and you're welcome to have sessions spaced out to suit your issue as well as your financial situation. As you become more self-sufficient with your issue, appointments tend to get spaced further apart until you feel you have things under control. If you have any questions at all, then feel free to get in touch with me directly."
+    },
+    {
+      "name": "Melika Clason",
+      "role": "EFT Practitioner & Hypnotherapist",
+      "qualifications": "MAFSFH MBRCP",
+      "qualifications_full": [
+        "MAFSFH",
+        "MBRCP"
+      ],
+      "contact": {
+        "email": "roots.wings.email@gmail.com",
+        "phone": "07824882224"
+      },
+      "fees": {
+        "60_minutes": "£65",
+        "90_minutes": "£95"
+      },
+      "therapy_types": [
+        "Emotionally Focused Therapy (EFT)",
+        "Hypnotherapy",
+        "Considering Love programme",
+        "Counselling",
+        "Mindfulness"
+      ],
+      "registrations": [
+        "MAFSFH",
+        "MBRCP"
+      ],
+      "about": "Emotionally Focused Therapy - EFT is a simple, proven technique that uses the same energy points recognised in Eastern medicine, like Acupuncture. Instead of needles, we use gentle finger-tapping on points on the face and upper torso. We combine this gentle tapping with focused conversation to quickly hone in on the negative thoughts and uncomfortable emotions you're experiencing. The tapping creates a direct connection with the brain's emotional control centre (the amygdala, or 'fight/flight' response). This process helps to release and neutralise the emotional charge behind your discomfort. The result? You quickly regain a feeling of control, focus, and calm, allowing your thinking brain to find creative solutions and solve problems once more. Hypnotherapy - Hypnotherapy is a state of focused attention that allows you to access and update your inner programming, making positive change feel easier and more natural. This is not about relinquishing control; it's about taking control of your inner world to create real shifts in your physical and emotional well-being. Our brains are incredible organs. They have the capacity to grow, change, and rewire themselves. With Hypnotherapy, we are simply guiding this powerful process to the areas of change you wish to see, enhancing and shaping healthier patterns and emotional responses. Considering Love - Considering Love is a structured integrative therapy programme that helps you heal old relationship patterns, redefine what love means to you, and step back into the world of connection with renewed self-awareness and confidence. Through a structured programme combining EFT, counselling, hypnotherapy, and mindfulness, you will gain clarity about what you truly want from love — and learn how to create it from a place of emotional wholeness rather than fear or past hurt."
+    },
+    {
+      "name": "Michael Sinclair",
+      "role": "Psychotherapeutic Counsellor",
+      "qualifications": "BSc (Hons) Psychology, Advanced Diploma Integrative Counselling, Diploma Supervision, Certificate C.A.T.",
+      "qualifications_full": [
+        "BSc (Hons) Psychology",
+        "Advanced Diploma Integrative Counselling",
+        "Diploma Supervision",
+        "Certificate C.A.T. (Cognitive Analytic Therapy)"
+      ],
+      "contact": {
+        "email": "michael@michaelsinclair.co.uk",
+        "phone": "07783040862"
+      },
+      "fees": {
+        "initial_consultation": "FREE",
+        "regular_sessions": "£60 - £120/hour",
+        "reports_assessments": "£60/hour"
+      },
+      "therapy_types": [
+        "Psychotherapeutic Counselling",
+        "Coaching",
+        "Supervision",
+        "Self-development programs"
+      ],
+      "registrations": [
+        "Accredited Psychotherapeutic Counsellor"
+      ],
+      "about": "An accredited psycho-therapeutic counsellor I would like to help you on your journey towards healing and self-discovery. My approach tends to be client led: establishing with people what approach, tools and methods work best for them, developing the work in a collaborative way. I can help with gaining greater understanding, control and choice over overwhelming emotions like anger, fear, anxiety, sadness, disassociation or depression. This can involve: Finding a stronger sense of identity, purpose and meaning. Working through and dealing with loss, grief or separation. Releasing the present Self from the grip of patterns or pain from the past. Working with all parts of being - physical, emotional, cognitive and spiritual. I also provide coaching, supervision and self-development programs."
+    },
+    {
+      "name": "Sharon Sheppard",
+      "role": "Counsellor & Clinical Supervisor",
+      "qualifications": "BA (Hons) Counselling, Registered Member MBACP(Accred), PG Cert.Clinical Supervision",
+      "qualifications_full": [
+        "BA (Hons) Counselling - University of Winchester",
+        "PG Certificate in Clinical Supervision - University of Derby",
+        "PG Certificate Substance Misuse and Mental Health - Middlesex University",
+        "Post Graduate Studies in Psychotherapy & Mental Health - Peter Symonds College"
+      ],
+      "contact": {
+        "email": "sharon@oldpuddletown.co.uk",
+        "phone": "07827486222"
+      },
+      "fees": {
+        "counselling_50_mins": "£58",
+        "initial_consultation": "FREE"
+      },
+      "therapy_types": [
+        "Integrative Counselling",
+        "Clinical Supervision (individual & group)"
+      ],
+      "registrations": [
+        "MBACP (Accred) - Registered Accredited Member BACP"
+      ],
+      "about": "You may be troubled by past events or fearful of the future. It may be that you are seeking to understand where you are today or feel adrift. Anxiety, depression, trauma, phobia's, addictions, families, employment and bereavements affect us all in different ways. As an experienced integrative counsellor, I offer a safe, empathic space, for us to build a therapeutic relationship, where you feel able to explore the fears and challenges that are troubling you, in a way that respects your understanding of life. I believe that we all have the capacity to move beyond the holds of past experiences and to address our fears for the future, leading to a more satisfied and confident life. Coming to counselling may provoke fear as we contemplate sharing difficulties, as a registered accredited Counsellor I am bound by the BACP Ethical Framework for the Counselling Profession. This ensures that you are my primary concern when we are working together, I will maintain professional standards, show you respect and build a working relationship with you. At all times, I will maintain integrity and be accountable for the work we undertake. My integrative training means that I have studied and evaluated many different counselling theories and can draw on this knowledge to ensure that you are fully supported and understand the work we do. BOOK A FREE COUNSELLING SESSION: To find out more please telephone or email to arrange an initial free consultation. Sessions are usually weekly and last for 50 minutes. I also offer Clinical Supervision for experienced and trainee counsellors. Please contact to discuss fees and requirements. Group Supervision is an option for between 2 & 4 people. Reports completed collaboratively in sessions."
+    },
+    {
+      "name": "Aimee Overington",
+      "role": "Counsellor & Clinical Supervisor",
+      "qualifications": "MSc MBACP MBABCP (Accred.)",
+      "qualifications_full": [
+        "MSc Counselling",
+        "Postgraduate Diploma in High Intensity CBT",
+        "CPCAB Level 6 Therapeutic Counselling Supervision"
+      ],
+      "contact": {
+        "email": "aimee@aimeetherapy.co.uk",
+        "phone": "07544 497 205"
+      },
+      "fees": {
+        "introductory_15_mins": "FREE",
+        "initial_consultation_50_mins": "£70",
+        "individual_therapy_50_mins": "£70"
+      },
+      "therapy_types": [
+        "Integrative Therapy (Person-Centred & Psychodynamic)",
+        "Cognitive Behavioural Therapy (CBT)",
+        "High Intensity CBT",
+        "Clinical Supervision"
+      ],
+      "registrations": [
+        "MBACP (Accred)",
+        "MBABCP (Accred)"
+      ],
+      "about": "There are times when life feels overwhelming, relationships become strained, or we find ourselves feeling low without knowing exactly why. Therapy offers a confidential and supportive space to explore these thoughts and emotions in a safe and welcoming environment. Background: I've been a practising therapist since 2011, beginning my work with clients at Cruse Bereavement Support. I later joined the Oxford Counselling Centre, where I supported individuals from a wide range of backgrounds facing a variety of challenges. Since 2018, I've been working in private practice, and have also led psychotherapeutic and support services within both private healthcare and charitable organisations. I am an accredited member of the BACP and BABCP, and hold an MSc in Counselling as well as a Postgraduate Diploma in High Intensity Cognitive Behavioural Therapy (CBT). Supervision: I have been practising as an Integrative Therapist, drawing on both Person-Centred and Psychodynamic approaches, since 2011. More recently, I have also qualified as a CBT Therapist, expanding the range of perspectives I bring to both therapy and supervision. My supervisory approach is welcoming, relaxed, and professional, underpinned by the 7-Eyed and the Cyclical models. I'd be happy to arrange a brief introductory conversation if you're interested in exploring the possibility of working together."
+    },
+    {
+      "name": "Naomi David",
+      "role": "Psychotherapist & Psychologist",
+      "qualifications": "Accredited Psychotherapist, Psychologist, Clinical Supervisor",
+      "qualifications_full": [
+        "Accredited Psychotherapist",
+        "Psychologist",
+        "Clinical Supervisor"
+      ],
+      "contact": {
+        "email": "freshthoughtscounselling@gmail.com",
+        "phone": "0754 0390 168",
+        "website": "www.freshthoughtscounselling.com"
+      },
+      "fees": {
+        "standard": "£40 - £75",
+        "concessions": "Available for low income & students"
+      },
+      "therapy_types": [
+        "Psychotherapy",
+        "Clinical Supervision"
+      ],
+      "registrations": [
+        "Accredited Psychotherapist"
+      ],
+      "about": "I am an experienced and Accredited Psychotherapist, Psychologist and Clinical Supervisor. I have experience working in the NHS, education settings and in private practice, working with a variety of presenting issues e.g. bereavement, anxiety, depression, stress, relationship difficulties, trauma, chronic pain and eating disorders, to name a few. However, we can also work together if you aren't sure what your problems are; but you feel a warm, professional, non-judgemental and confidential space is what you need. I offer a flexible appointment system, both in office and online. I believe in the idea of 'working with the whole person'. Therefore, I offer what is wanted, relevant and mutually agreed with you. I offer therapy aimed at your own personal needs in a confidential and safe environment, where we can work together in a non-judgemental and respectful way allowing you the time to explore your own emotions and thoughts. My work as a Clinical Supervisor means I offer; professional & ethical support to other therapists to ensure client work is safe, for both client and counsellor.",
+      "availability": "NOT TAKING NEW CLIENTS"
+    },
+    {
+      "name": "Antoinette Keogh",
+      "role": "Counsellor & Life Coach",
+      "qualifications": "Counselling in Education MSc, Diploma in Therapeutic Counselling CPCAB, CBT Level 5 Diploma, PGCE",
+      "qualifications_full": [
+        "MSc Counselling in Education",
+        "Diploma in Therapeutic Counselling (CPCAB)",
+        "CBT Level 5 Diploma",
+        "PGCE"
+      ],
+      "contact": {
+        "email": "antoinettecounselling@gmail.com",
+        "phone": null
+      },
+      "fees": {
+        "per_session": "£60"
+      },
+      "therapy_types": [
+        "Person-Centred Therapy",
+        "Psychodynamic Therapy",
+        "Cognitive Behavioural Therapy",
+        "Gestalt Therapy",
+        "Transactional Analysis",
+        "Solution-focused Brief Therapy",
+        "Life Coaching"
+      ],
+      "registrations": [
+        "Registered Member BACP"
+      ],
+      "about": "I have over 25 years of experience, working in education; involved in training, mentoring and counselling both teachers and students. I decided to deepen my knowledge and further my expertise in 2011 and started practising independently as a counsellor. As well as my private practice, I currently work with adolescents and young adults in higher and further education. I am passionate about the power of counselling and coaching to effect positive change. I offer therapy aimed at your personal needs in a confidential and safe space. 'Person-centred', is at the core of my therapy, however I draw on a range of approaches including: Psychodynamic Therapy, Cognitive Behavioural Therapy, Gestalt Therapy, Transactional Analysis, Solution-focused Brief Therapy. I also offer Life Coaching for those who feel stuck in a particular area of their life and need guidance to move forward to their preferred future. This involves creating strategies and making clear goals and targets to achieve aim. Expert Counselling sessions Dorchester, Weymouth, Bridport."
+    },
+    {
+      "name": "Marcel Wadman",
+      "role": "Podiatrist",
+      "qualifications": "BSc Hons, Pod, srch, mchs",
+      "qualifications_full": [
+        "BSc Hons in Podiatric Medicine (Southampton University)",
+        "Pod, srch, mchs",
+        "Inventor of world's first fully adjustable prefabricated orthotic"
+      ],
+      "contact": {
+        "email": "footworksbiomech@aol.com",
+        "phone": "01935 872588",
+        "mobile": "07834548946"
+      },
+      "fees": {
+        "30_minutes": "From £70",
+        "full_biomedical_assessment": "£130",
+        "short_report": "£10",
+        "orthotics": "Individual pricing"
+      },
+      "therapy_types": [
+        "Podiatry",
+        "Biomechanics",
+        "Orthotic prescription",
+        "Lower limb conditions treatment"
+      ],
+      "registrations": [
+        "Society of Podiatrists",
+        "HCPC (Health Care Professions Council)",
+        "APMA (American Podiatric Medical Association)"
+      ],
+      "special_interest_groups": [
+        "Foot and Ankle Clinical Research",
+        "Sports Medicine Orthopedics",
+        "Medical Legal Work",
+        "Sports Biomechanics",
+        "Pain Physician"
+      ],
+      "about": "Marcel is a highly experienced Dorset Podiatrist with considerable knowledge in delivering Podiatric care in both Dorset and Harley Street, London. Marcel has a BSc Hons in Podiatric Medicine from Southampton University and is registered with the Society of Podiatrists and HCPC (The Health Care Professions Council). He has 20 years of experience in both private practice and the NHS covering all aspects of foot care and lower limb conditions. Specialising mainly in Biomechanics in private practice these days, he is also the inventor of the The World's first fully adjustable prefabricated orthotic."
+    },
+    {
+      "name": "Chrissy Fraser",
+      "role": "Alexander Technique Teacher",
+      "qualifications": "STAT Member, RCOT (Retired)",
+      "qualifications_full": [
+        "Member, Society of Alexander Technique Teachers (STAT)",
+        "Graduated from Oxford Alexander Technique School (2012)",
+        "3-year training course (2009-2012)",
+        "Retired Member, Royal College of Occupational Therapists (RCOT)"
+      ],
+      "contact": {
+        "email": "Happydolphin@freeuk.com",
+        "phone": "07986387448"
+      },
+      "fees": {
+        "first_lesson": "£65",
+        "regular_lesson": "£60",
+        "5_lessons_prepaid": "£270 (£54/lesson)",
+        "10_lessons_prepaid": "£530 (£53/lesson)",
+        "prepaid_validity": "Must be used within 3 months"
+      },
+      "therapy_types": [
+        "Alexander Technique",
+        "Posture improvement",
+        "Movement coordination"
+      ],
+      "registrations": [
+        "Member STAT (Society of Alexander Technique Teachers)"
+      ],
+      "about": "Retired Member of the Royal College of Occupational Therapist (RCOT) and experienced Alexander Technique Teacher and member of the Society of Alexander Technique Teachers (STAT). I have been fascinated by this wonderful work since 1995 taking lessons following back surgery. Then in 2009 I embarked on a three year training course at the Oxford Alexander Technique School graduating in 2012. Since then I have worked with a wide cohort of adults and children helping to improve their performance in any everyday activity with a general improvement in their quality of life. So whether we are cooking, working at a computer, dancing, singing an aria, walking in town we process an inherent capacity to move naturally. Moving naturally promotes ease, flexibility, power and expressiveness. Unwittingly, we often interfere with our anatomical design. Energy, poise, and ease gives way to effort, tension and fatigue. The Alexander Technique gives a working knowledge of the principles governing human coordination. It teaches us how to be, at once, relaxed and ready, soft and strong, light and substantial, firm and flexible. Through lessons we become capable of redirecting excessive effort into useful energy. Becoming more effortlessly upright, we also find ourselves coming down to the ground, to a place where we can function, comfortably and appreciatively. If this appeals to you come and give it a go and feel the change in you."
+    },
+    {
+      "name": "Roberta Winmill",
+      "role": "Reflexologist & Massage Therapist",
+      "qualifications": "Ultimate Bodywork Diploma, Reflexology, Remedial & Sports Massage, Indian Head Massage",
+      "qualifications_full": [
+        "Ultimate Bodywork Diploma (Exeter Natural Health Centre, John Freeman)",
+        "Reflexology qualification",
+        "Remedial and Sports Massage qualification",
+        "Indian Head Massage qualification",
+        "20 years experience"
+      ],
+      "contact": {
+        "email": "robertawinmill@hotmail.co.uk",
+        "phone": "07531 752584"
+      },
+      "fees": {
+        "per_hour": "£45"
+      },
+      "therapy_types": [
+        "Reflexology",
+        "Holistic Massage",
+        "Remedial Massage",
+        "Sports Massage",
+        "Indian Head Massage"
+      ],
+      "registrations": [
+        "Fully Insured"
+      ],
+      "about": "I have been practicing Holistic massage and reflexology for 20 years and have worked at The Rooms in Poundbury since 2010. I aim to create individual treatments according to clients needs, by combining my knowledge of holistic and remedial treatments and reflexology to offer a deeply relaxing, soothing and healing treatment. My clients present with a wide range of conditions and are from all age groups. Confidentiality and modesty are respected at all times. I began my training at Exeter Natural Health Centre under John Freeman, with an Ultimate Bodywork Diploma, followed by qualifications in Reflexology, Remedial and Sports Massage and Indian Head massage. I am fully insured."
+    },
+    {
+      "name": "Elizabeth (Liz) Bray",
+      "role": "Nutritional Therapist",
+      "qualifications": "BSc Cert HP Dip AIT BANT CNHC",
+      "qualifications_full": [
+        "BSc Health Sciences & Herbal Medicine (London)",
+        "Cert HP (Certificate Health Promotion)",
+        "DNN (Diploma Natural Nutrition) - Bristol, 2005",
+        "Dip AIT (Diploma Allergy Intolerance Therapy)",
+        "BANT Accredited Clinical Supervisor",
+        "NTEC Systems Approach to Cancer (Dr Nina Fuller-Shavel)"
+      ],
+      "contact": {
+        "email": "info@body-balance.co.uk",
+        "phone": "07980601670"
+      },
+      "fees": {
+        "consultations": "£85 - £155",
+        "igg_food_intolerance_testing": "From £110",
+        "further_lab_tests": "As advised",
+        "discovery_call_10_mins": "FREE"
+      },
+      "therapy_types": [
+        "Nutritional Therapy",
+        "Herbal Medicine",
+        "Naturopathy",
+        "Allergy/Intolerance Therapy",
+        "Cancer Nutrition Support",
+        "Lab testing"
+      ],
+      "registrations": [
+        "BANT (British Association for Nutrition and Lifestyle Medicine)",
+        "CNHC (Complementary and Natural Healthcare Council)"
+      ],
+      "about": "Approach: I graduated in Health Sciences and Herbal Medicine (London), followed by a Nutrition Diploma (Bristol) in 2005. My aim is to find the root cause of symptoms at one to one consultations, using laboratory tests, evidence based nutrition medicine research and assess lifestyle factors, diet, medication and supplements to restore optimum health. I assess pH balance, vitamins, minerals, essential fatty acids, inflammation levels, in fact, all aspects of your diet and how this may be affecting your symptoms and all aspects of your health, both physically and emotionally. Nutritional therapy, herbal medicine and naturopathy provided the answers to my own health problems and led me to study these subjects in depth, enabling me now to share this wonderful approach to preventative health care and support my clients towards achieving their goals and optimum health. Cancer and Nutrition: If you're concerned about cancer, or have a diagnosis, you may be faced with a raft of conflicting information about what to eat and what not to eat. As a BANT-registered nutritional therapist, I can help you navigate the maze, to find a personalised diet that will provide optimum health support. My BANT-recognised enhanced training allows me to work with anyone with a diagnosis or suspected diagnosis of cancer. By creating a personalised nutrition and lifestyle plan for you this can help you manage side effects and feel your best at any stage of your cancer journey.",
+      "service_page_status": "NOT MAPPED TO A SERVICE PAGE"
+    }
+  ]
+}
