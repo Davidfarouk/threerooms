@@ -23,6 +23,20 @@ This automatically:
 
 **That's it!** No need to run multiple files. Just `GO.bat` and you're done.
 
+### Share & Test on Mobile
+
+To test on your phone or share with friends:
+```batch
+START-NGROK.bat
+```
+
+This creates a public URL you can:
+- Use on your phone
+- Share with friends on different WiFi
+- Access from anywhere
+
+**Note:** Make sure Next.js is running first (via `GO.bat`). See `NGROK-SETUP.md` for details.
+
 ## 🌐 URLs
 
 - **Website**: http://localhost:3000
