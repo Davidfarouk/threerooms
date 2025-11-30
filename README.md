@@ -25,17 +25,26 @@ This automatically:
 
 ### Share & Test on Mobile
 
-To test on your phone or share with friends:
+**Option 1: Same WiFi Network (No Installation)**
+```batch
+SHARE-LOCAL.bat
+```
+- Shows your local IP address
+- Access from phone on same WiFi: `http://YOUR_IP:3000`
+- No additional software needed!
+
+**Option 2: Different Networks (Router Port Forwarding)**
+- See `PORT-FORWARDING-GUIDE.md` for detailed instructions
+- Requires router access to set up port forwarding
+- No additional software needed!
+
+**Option 3: Using ngrok (Requires Installation)**
 ```batch
 START-NGROK.bat
 ```
-
-This creates a public URL you can:
-- Use on your phone
-- Share with friends on different WiFi
-- Access from anywhere
-
-**Note:** Make sure Next.js is running first (via `GO.bat`). See `NGROK-SETUP.md` for details.
+- Creates public URL instantly
+- Works from anywhere
+- Requires ngrok installation (see `NGROK-SETUP.md`)
 
 ## 🌐 URLs
 
