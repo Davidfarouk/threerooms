@@ -116,44 +116,59 @@ echo.
 echo ========================================
 echo.
 
-REM Start ngrok in background and capture output
+REM Start ngrok in background
 start "Ngrok Tunnel" cmd /k "%NGROK_PATH% http 3000"
 
-REM Wait a moment for ngrok to start
-timeout /t 3 /nobreak >nul
+REM Wait for ngrok to start
+echo [INFO] Waiting for ngrok to start...
+timeout /t 5 /nobreak >nul
 
 REM Try to get the URL from ngrok's API
-echo [INFO] Getting ngrok URL...
+echo [INFO] Getting your public URL...
 timeout /t 2 /nobreak >nul
 
-REM Try to fetch URL from ngrok API
-for /f "tokens=*" %%i in ('curl -s http://localhost:4040/api/tunnels 2^>nul ^| findstr /C:"public_url"') do (
-    set "API_RESPONSE=%%i"
+REM Try to extract URL using PowerShell
+set "NGROK_URL="
+for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; try { $response = Invoke-RestMethod -Uri 'http://localhost:4040/api/tunnels' -TimeoutSec 2; if ($response.tunnels -and $response.tunnels.Count -gt 0) { $response.tunnels[0].public_url } } catch { }" 2^>nul') do (
+    set "NGROK_URL=%%i"
 )
 
-REM Alternative: Show instructions
 echo.
 echo ========================================
 echo   YOUR PUBLIC URL
 echo ========================================
 echo.
-echo A new window opened with ngrok running.
-echo.
-echo Look for a line like this in the ngrok window:
-echo.
-echo   Forwarding   https://abc123.ngrok.io -^> http://localhost:3000
-echo.
-echo Copy the HTTPS URL (https://...) and share it!
-echo.
-echo You can also view it in your browser:
-echo   http://localhost:4040
-echo.
-echo ========================================
-echo.
-echo [INFO] ngrok is running in a separate window
-echo [INFO] Keep that window open while testing
-echo [INFO] Close it when done (Ctrl+C in that window)
-echo.
+
+if not "!NGROK_URL!"=="" (
+    echo   !NGROK_URL!
+    echo.
+    echo ========================================
+    echo.
+    echo ✅ Copy this URL and share it globally!
+    echo.
+    echo This URL works from anywhere in the world.
+    echo Share it with users in different countries!
+    echo.
+    echo [INFO] ngrok is running in a separate window
+    echo [INFO] Keep that window open while testing
+    echo [INFO] Close it when done (Ctrl+C in that window)
+    echo.
+) else (
+    echo [INFO] A new window opened with ngrok running.
+    echo.
+    echo Look for a line like this in the ngrok window:
+    echo.
+    echo   Forwarding   https://abc123.ngrok.io -^> http://localhost:3000
+    echo.
+    echo Copy the HTTPS URL (https://...) and share it!
+    echo.
+    echo You can also view it in your browser:
+    echo   http://localhost:4040
+    echo.
+    echo Or run: GET-NGROK-URL.bat
+    echo.
+)
+
 echo ========================================
 echo.
 pause
