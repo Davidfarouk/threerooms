@@ -30,9 +30,20 @@ echo ========================================
 echo   PHONE TESTING URL
 echo ========================================
 echo.
+echo METHOD 1: Same WiFi Network
+echo ----------------------------
 echo Open this on your phone (same WiFi):
 echo.
 echo   http://!LOCAL_IP!:3000
+echo.
+echo.
+echo METHOD 2: Different WiFi (Mobile Hotspot)
+echo -----------------------------------------
+echo 1. Create mobile hotspot on your phone
+echo 2. Connect your computer to phone's hotspot
+echo 3. Run this script again to get new IP
+echo 4. Open the URL on your phone
+echo 5. Share hotspot with friends - they use same URL
 echo.
 echo ========================================
 echo.
