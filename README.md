@@ -32,13 +32,15 @@ This automatically:
 4. **Access from phone:** Use the URL shown (phone is on same network as computer)
 5. **Share hotspot with friends** - they connect and use same URL
 
-**Using ngrok (For Different Networks):**
+**Using ngrok (For Different Networks/Countries):**
 ```batch
 START-NGROK.bat
 ```
+- Automatically installs ngrok if needed
 - Creates public URL instantly
-- Works from anywhere (different WiFi networks)
-- Requires ngrok installation (see `NGROK-SETUP.md`)
+- Works from anywhere in the world
+- Perfect for sharing with users in different countries
+- No manual installation needed!
 
 ## 🌐 URLs
 
