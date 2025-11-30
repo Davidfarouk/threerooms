@@ -25,25 +25,19 @@ This automatically:
 
 ### Share & Test on Mobile
 
-**Option 1: Same WiFi Network (No Installation)**
-```batch
-SHARE-LOCAL.bat
-```
-- Shows your local IP address
-- Access from phone on same WiFi: `http://YOUR_IP:3000`
-- No additional software needed!
+**Quick Method - Use Mobile Hotspot:**
+1. **Create hotspot on your phone** (Settings → Hotspot)
+2. **Connect your computer** to phone's hotspot
+3. **Run:** `GET-PHONE-URL.bat` to get the IP
+4. **Access from phone:** Use the URL shown (phone is on same network as computer)
+5. **Share hotspot with friends** - they connect and use same URL
 
-**Option 2: Different Networks (Router Port Forwarding)**
-- See `PORT-FORWARDING-GUIDE.md` for detailed instructions
-- Requires router access to set up port forwarding
-- No additional software needed!
-
-**Option 3: Using ngrok (Requires Installation)**
+**Using ngrok (For Different Networks):**
 ```batch
 START-NGROK.bat
 ```
 - Creates public URL instantly
-- Works from anywhere
+- Works from anywhere (different WiFi networks)
 - Requires ngrok installation (see `NGROK-SETUP.md`)
 
 ## 🌐 URLs
