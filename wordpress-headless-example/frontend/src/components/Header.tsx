@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     const navItems = [
         { label: 'Home', href: '/' },
@@ -18,44 +20,51 @@ export default function Header() {
     ];
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-            <nav className="container mx-auto px-6 py-4">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800/50 transition-shadow duration-300">
+            <nav className="container mx-auto px-6 py-5 md:py-6">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-3">
+                    <Link href="/" className="flex items-center space-x-4">
                         <Image
                             src="/resources/Logos/The Rooms logo.jpg"
                             alt="The Rooms Poundbury"
-                            width={120}
-                            height={40}
-                            className="h-10 w-auto object-contain"
+                            width={160}
+                            height={55}
+                            className="h-12 md:h-14 w-auto object-contain"
                             priority
                         />
-                        <span className="text-sm text-stone-600 hidden sm:block">Poundbury</span>
+                        <span className="text-base md:text-lg text-gray-300 hidden sm:block font-medium">Poundbury</span>
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="relative text-stone-700 hover:text-brand-800 transition-all duration-300 font-medium group"
-                            >
-                                {item.label}
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-800 transition-all duration-300 group-hover:w-full"></span>
-                            </Link>
-                        ))}
+                    <div className="hidden md:flex items-center space-x-10">
+                        {navItems.map((item) => {
+                            const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+                            return (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className={`relative text-base md:text-lg text-gray-200 hover:text-white transition-all duration-300 font-medium group ${
+                                        isActive ? 'text-white' : ''
+                                    }`}
+                                >
+                                    {item.label}
+                                    <span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${
+                                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                                    }`}></span>
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden p-2 text-stone-700"
+                        className="md:hidden p-2 text-gray-200"
                         aria-label="Toggle menu"
                     >
                         <svg
-                            className="w-6 h-6"
+                            className="w-7 h-7"
                             fill="none"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -72,6 +81,21 @@ export default function Header() {
                     </button>
                 </div>
 
+                {/* Mobile Menu Backdrop */}
+                <AnimatePresence>
+                    {mobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                            style={{ top: '112px' }}
+                        />
+                    )}
+                </AnimatePresence>
+
                 {/* Mobile Menu */}
                 <AnimatePresence>
                     {mobileMenuOpen && (
@@ -79,19 +103,26 @@ export default function Header() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="md:hidden mt-4 pb-4"
+                            className="md:hidden mt-4 pb-4 relative z-50 bg-gray-900"
                         >
-                            <div className="flex flex-col space-y-4">
-                                {navItems.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="text-stone-700 hover:text-brand-800 transition-all duration-300 font-medium py-2 hover:translate-x-1"
-                                    >
-                                        {item.label}
-                                    </Link>
-                                ))}
+                            <div className="flex flex-col space-y-5">
+                                {navItems.map((item) => {
+                                    const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+                                    return (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className={`text-lg transition-all duration-300 font-medium py-3 hover:translate-x-1 ${
+                                                isActive 
+                                                    ? 'text-orange-500 font-semibold border-l-4 border-orange-500 pl-4' 
+                                                    : 'text-gray-200 hover:text-white'
+                                            }`}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    );
+                                })}
                             </div>
                         </motion.div>
                     )}

@@ -170,43 +170,18 @@ echo   STEP 5/9: SETUP FRONTEND
 echo ========================================
 echo.
 
-echo [9/9] Installing dependencies and clearing cache...
+echo [9/9] Setting up frontend dependencies...
 cd wordpress-headless-example\frontend
 
-REM Stop any running Next.js processes
-taskkill /F /IM node.exe >nul 2>&1
-timeout /t 2 /nobreak >nul
-
-REM Completely remove corrupted cache
-if exist .next (
-    echo Removing corrupted .next cache...
-    rmdir /s /q .next 2>nul
-)
-if exist .next-cache (
-    rmdir /s /q .next-cache 2>nul
-)
-if exist node_modules\.cache (
-    rmdir /s /q node_modules\.cache 2>nul
-)
-
-REM Install dependencies
+REM Install dependencies if needed
 if not exist node_modules (
     echo Installing npm packages...
     call npm install
 ) else (
-    call npm list react-intersection-observer >nul 2>&1
-    if %ERRORLEVEL% NEQ 0 (
-        echo Installing react-intersection-observer...
-        call npm install react-intersection-observer
-    )
-    call npm list framer-motion >nul 2>&1
-    if %ERRORLEVEL% NEQ 0 (
-        echo Installing framer-motion...
-        call npm install framer-motion
-    )
+    echo [OK] Dependencies already installed
 )
 cd ..\..
-echo [OK] Dependencies ready and cache cleared
+echo [OK] Frontend ready
 echo.
 
 echo ========================================
@@ -237,9 +212,9 @@ echo.
 echo Starting Next.js Frontend...
 echo This will open in a new window...
 echo.
-cd wordpress-headless-example\frontend
-start "Next.js Dev Server" cmd /k "npm run dev"
-cd ..\..
+cd wordpress-headless-example
+start "Next.js Dev Server" cmd /k "run.bat"
+cd ..
 
 echo.
 echo ========================================

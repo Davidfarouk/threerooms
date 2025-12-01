@@ -96,8 +96,7 @@ if %ERRORLEVEL% NEQ 0 (
     echo   2. Or: cd wordpress-headless-example\frontend ^&^& npm run dev
     echo.
     echo Press any key to continue anyway (ngrok will start but won't work until Next.js is running)...
-    pause
-    echo.
+    pause >nul
 ) else (
     echo [OK] Next.js is running on port 3000
 )
@@ -110,43 +109,43 @@ echo.
 echo [INFO] Starting ngrok tunnel...
 echo [INFO] This will create a public URL you can share globally!
 echo.
-echo The ngrok URL will appear below.
-echo Copy the HTTPS URL and share it!
-echo.
 echo ========================================
 echo.
 
-REM Check if ngrok is already running
+REM Check if ngrok is already running (quick check)
 echo [INFO] Checking if ngrok is already running...
-for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; try { $response = Invoke-RestMethod -Uri 'http://localhost:4040/api/tunnels' -TimeoutSec 2 -ErrorAction Stop; if ($response.tunnels -and $response.tunnels.Count -gt 0) { $response.tunnels[0].public_url } } catch { }" 2^>nul') do (
-    set "EXISTING_URL=%%i"
-)
-
-if not "!EXISTING_URL!"=="" (
-    echo [INFO] ngrok is already running!
-    set "NGROK_URL=!EXISTING_URL!"
-    goto :show_url
+curl -s http://localhost:4040/api/tunnels >nul 2>&1
+if %ERRORLEVEL% EQU 0 (
+    REM ngrok API is accessible, try to get URL
+    for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; try { $response = Invoke-RestMethod -Uri 'http://localhost:4040/api/tunnels' -TimeoutSec 2; if ($response.tunnels -and $response.tunnels.Count -gt 0) { $response.tunnels[0].public_url } } catch { }" 2^>nul') do (
+        set "EXISTING_URL=%%i"
+    )
+    if not "!EXISTING_URL!"=="" (
+        echo [INFO] ngrok is already running!
+        set "NGROK_URL=!EXISTING_URL!"
+        goto :show_url
+    )
 )
 
 REM Start ngrok in background
 echo [INFO] Starting ngrok tunnel...
 start "Ngrok Tunnel" cmd /k "%NGROK_PATH% http 3000"
 
-REM Wait for ngrok to start (longer wait for first time)
-echo [INFO] Waiting for ngrok to start (this may take 10-15 seconds)...
-timeout /t 3 /nobreak >nul
+REM Wait for ngrok to start
+echo [INFO] Waiting for ngrok to initialize (10 seconds)...
+timeout /t 10 /nobreak >nul
 
-REM Try to get the URL from ngrok's API with retries
+REM Try to get the URL from ngrok's API with simple retries
 set "NGROK_URL="
 set "RETRY_COUNT=0"
-set "MAX_RETRIES=8"
+set "MAX_RETRIES=10"
 
 :wait_for_url
-echo [INFO] Getting your public URL (attempt !RETRY_COUNT! of !MAX_RETRIES!)...
-timeout /t 2 /nobreak >nul
+set /a RETRY_COUNT+=1
+echo [INFO] Getting URL (attempt !RETRY_COUNT! of !MAX_RETRIES!)...
 
-REM Try to extract URL using PowerShell
-for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; try { $response = Invoke-RestMethod -Uri 'http://localhost:4040/api/tunnels' -TimeoutSec 3 -ErrorAction Stop; if ($response.tunnels -and $response.tunnels.Count -gt 0) { $response.tunnels[0].public_url } } catch { }" 2^>nul') do (
+REM Simple PowerShell command with timeout
+for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; try { $response = Invoke-RestMethod -Uri 'http://localhost:4040/api/tunnels' -TimeoutSec 3; if ($response.tunnels -and $response.tunnels.Count -gt 0) { $response.tunnels[0].public_url } } catch { }" 2^>nul') do (
     set "NGROK_URL=%%i"
 )
 
@@ -154,8 +153,9 @@ if not "!NGROK_URL!"=="" (
     goto :show_url
 )
 
-set /a RETRY_COUNT+=1
+REM Wait before next retry
 if !RETRY_COUNT! LSS !MAX_RETRIES! (
+    timeout /t 2 /nobreak >nul
     goto :wait_for_url
 )
 
@@ -192,18 +192,20 @@ echo ========================================
 echo   NGROK STARTED
 echo ========================================
 echo.
-echo [INFO] A new window opened with ngrok running.
-echo [INFO] Waiting a bit longer for ngrok to fully initialize...
+echo [INFO] ngrok is running in a separate window.
 echo.
-echo Please check the ngrok window for a line like:
+echo To get your public URL, do ONE of these:
 echo.
-echo   Forwarding   https://abc123.ngrok.io -^> http://localhost:3000
+echo 1. Check the ngrok window:
+echo    - Look for: Forwarding https://abc123.ngrok-free.app
+echo    - Copy that HTTPS URL
 echo.
-echo Copy the HTTPS URL (https://...) and share it!
+echo 2. Open in browser:
+echo    - Visit: http://localhost:4040
+echo    - You'll see your public URL on the dashboard
 echo.
-echo You can also:
-echo   - View it in your browser: http://localhost:4040
-echo   - Run GET-NGROK-URL.bat in a few seconds
+echo 3. Run this command:
+echo    - GET-NGROK-URL.bat (wait 5-10 seconds first)
 echo.
 echo ========================================
 echo.

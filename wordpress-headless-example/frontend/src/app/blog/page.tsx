@@ -10,7 +10,7 @@ export default async function BlogPage() {
     return (
         <div className="min-h-screen bg-stone-50">
             {/* Hero Section */}
-            <AnimatedSection className="bg-brand-800 text-white py-20">
+            <AnimatedSection className="bg-brand-800 text-white pt-28 md:pt-32 pb-20">
                 <div className="container mx-auto px-6 text-center">
                     <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-white drop-shadow-lg">
                         Blog
@@ -45,7 +45,7 @@ export default async function BlogPage() {
                                         className="text-stone-600 mb-6 line-clamp-3"
                                         dangerouslySetInnerHTML={{ __html: post.excerpt?.rendered || post.content.rendered }}
                                     />
-                                    <div className="inline-flex items-center text-medical-600 font-medium hover:text-medical-800 transition-colors">
+                                    <div className="inline-flex items-center text-orange-500 font-medium hover:text-orange-600 transition-colors">
                                         Read more <span className="ml-2">→</span>
                                     </div>
                                 </AnimatedCard>

@@ -17,7 +17,7 @@ export default async function AboutPage() {
     return (
         <div className="min-h-screen bg-brand-50">
             {/* Hero Section */}
-            <AnimatedSection className="bg-brand-800 text-white py-20 relative overflow-hidden">
+            <AnimatedSection className="bg-brand-800 text-white pt-28 md:pt-32 pb-20 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-30">
                     <Image
                         src={heroImage}
@@ -37,7 +37,7 @@ export default async function AboutPage() {
                     >
                         About Us
                     </TextReveal>
-                    <p className="text-xl text-white max-w-2xl mx-auto drop-shadow-md">
+                    <p className="text-xl md:text-2xl lg:text-3xl text-white max-w-3xl mx-auto drop-shadow-md leading-relaxed">
                         A calm and welcoming therapeutic space in the heart of Poundbury
                     </p>
                 </div>

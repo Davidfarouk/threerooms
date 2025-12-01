@@ -10,7 +10,7 @@ export default async function ContactPage() {
     return (
         <div className="min-h-screen bg-brand-50">
             {/* Hero Section */}
-            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white py-20">
+            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white pt-28 md:pt-32 pb-20">
                 <div className="container mx-auto px-6 text-center">
                     <TextReveal
                         className="text-5xl md:text-6xl font-serif font-medium mb-6 text-white drop-shadow-2xl justify-center"
@@ -24,7 +24,7 @@ export default async function ContactPage() {
             </AnimatedSection>
 
             {/* Content Section */}
-            <AnimatedSection className="py-16 px-6">
+            <AnimatedSection className="py-20 px-6 bg-brand-50">
                 <div className="container mx-auto max-w-6xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* Left Side - Get in Touch & Contact Form */}

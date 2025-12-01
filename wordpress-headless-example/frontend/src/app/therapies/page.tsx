@@ -5,6 +5,7 @@ import StaggerContainer from '@/components/StaggerContainer';
 import TiltCard from '@/components/TiltCard';
 import TextReveal from '@/components/TextReveal';
 import Link from 'next/link';
+import SkeletonCard from '@/components/SkeletonCard';
 
 export default async function TherapiesPage() {
     const services = await getCustomPosts('service');
@@ -12,7 +13,7 @@ export default async function TherapiesPage() {
     return (
         <div className="min-h-screen bg-brand-50">
             {/* Hero Section */}
-            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white py-20">
+            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white pt-28 md:pt-32 pb-20">
                 <div className="container mx-auto px-6 text-center">
                     <TextReveal
                         className="text-5xl md:text-6xl font-serif font-medium mb-6 text-white drop-shadow-2xl justify-center"
@@ -26,7 +27,7 @@ export default async function TherapiesPage() {
             </AnimatedSection>
 
             {/* Services Grid */}
-            <AnimatedSection className="py-16 px-6">
+            <AnimatedSection className="py-20 px-6 bg-brand-50">
                 <div className="container mx-auto max-w-6xl">
                     <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.length > 0 ? (
@@ -53,7 +54,7 @@ export default async function TherapiesPage() {
                                         {service.meta?.price_range && (
                                             <p className="text-brown-600 font-semibold mb-4">Price: {service.meta.price_range}</p>
                                         )}
-                                        <div className="inline-flex items-center text-brown-600 font-medium hover:text-brown-800 transition-colors">
+                                        <div className="inline-flex items-center text-orange-500 font-medium hover:text-orange-600 transition-colors">
                                             Learn more <span className="ml-2">→</span>
                                         </div>
                                     </AnimatedCard>

@@ -10,13 +10,14 @@ echo.
 REM Try to get URL from ngrok API with retries
 set "NGROK_URL="
 set "RETRY_COUNT=0"
-set "MAX_RETRIES=5"
+set "MAX_RETRIES=10"
 
 :retry
+set /a RETRY_COUNT+=1
 echo [INFO] Checking ngrok status (attempt !RETRY_COUNT! of !MAX_RETRIES!)...
 
-REM Try to extract URL using PowerShell with error handling
-for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; try { $response = Invoke-RestMethod -Uri 'http://localhost:4040/api/tunnels' -TimeoutSec 3 -ErrorAction Stop; if ($response.tunnels -and $response.tunnels.Count -gt 0) { $response.tunnels[0].public_url } } catch { }" 2^>nul') do (
+REM Try to extract URL using PowerShell with better error handling
+for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; $maxRetries = 3; $retryCount = 0; while ($retryCount -lt $maxRetries) { try { $response = Invoke-RestMethod -Uri 'http://localhost:4040/api/tunnels' -TimeoutSec 5 -ErrorAction Stop; if ($response.tunnels -and $response.tunnels.Count -gt 0) { Write-Output $response.tunnels[0].public_url; break } } catch { Start-Sleep -Milliseconds 500; $retryCount++ } }" 2^>nul') do (
     set "NGROK_URL=%%i"
 )
 
@@ -24,10 +25,20 @@ if not "!NGROK_URL!"=="" (
     goto :url_found
 )
 
+REM Try alternative method - check web interface HTML
+if !RETRY_COUNT! EQU 5 (
+    echo [INFO] Trying alternative method to get URL...
+    for /f "tokens=*" %%i in ('powershell -Command "$ErrorActionPreference='SilentlyContinue'; try { $html = Invoke-WebRequest -Uri 'http://localhost:4040' -TimeoutSec 5 -UseBasicParsing; if ($html.Content -match 'https://[a-z0-9-]+\.ngrok-free\.app|https://[a-z0-9-]+\.ngrok\.io') { $matches[0] } } catch { }" 2^>nul') do (
+        set "NGROK_URL=%%i"
+    )
+    if not "!NGROK_URL!"=="" (
+        goto :url_found
+    )
+)
+
 REM If URL not found, wait and retry
-set /a RETRY_COUNT+=1
 if !RETRY_COUNT! LSS !MAX_RETRIES! (
-    timeout /t 2 /nobreak >nul
+    timeout /t 3 /nobreak >nul
     goto :retry
 )
 

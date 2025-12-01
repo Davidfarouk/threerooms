@@ -20,36 +20,65 @@ export default function AnimatedSection({
 }: AnimatedSectionProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.15,
+    rootMargin: '-50px 0px',
   });
 
   const variants = {
-    up: scrollReveal,
-    down: {
-      hidden: { opacity: 0, y: -50, scale: 0.95 },
+    up: {
+      hidden: { 
+        opacity: 0, 
+        y: 60,
+        scale: 0.96
+      },
       visible: { 
         opacity: 1, 
         y: 0,
         scale: 1,
-        transition: { duration: 0.6, delay, ease: 'easeOut' }
+        transition: { 
+          duration: 0.8, 
+          delay,
+          ease: [0.16, 1, 0.3, 1] // Custom easing for smoother feel
+        }
+      }
+    },
+    down: {
+      hidden: { opacity: 0, y: -60, scale: 0.96 },
+      visible: { 
+        opacity: 1, 
+        y: 0,
+        scale: 1,
+        transition: { 
+          duration: 0.8, 
+          delay, 
+          ease: [0.16, 1, 0.3, 1]
+        }
       }
     },
     left: {
-      hidden: { opacity: 0, x: -50, scale: 0.95 },
+      hidden: { opacity: 0, x: -60, scale: 0.96 },
       visible: { 
         opacity: 1, 
         x: 0,
         scale: 1,
-        transition: { duration: 0.6, delay, ease: 'easeOut' }
+        transition: { 
+          duration: 0.8, 
+          delay, 
+          ease: [0.16, 1, 0.3, 1]
+        }
       }
     },
     right: {
-      hidden: { opacity: 0, x: 50, scale: 0.95 },
+      hidden: { opacity: 0, x: 60, scale: 0.96 },
       visible: { 
         opacity: 1, 
         x: 0,
         scale: 1,
-        transition: { duration: 0.6, delay, ease: 'easeOut' }
+        transition: { 
+          duration: 0.8, 
+          delay, 
+          ease: [0.16, 1, 0.3, 1]
+        }
       }
     }
   };

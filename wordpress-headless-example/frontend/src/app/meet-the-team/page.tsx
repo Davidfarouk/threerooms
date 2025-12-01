@@ -5,6 +5,8 @@ import StaggerContainer from '@/components/StaggerContainer';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getTeamHeadshot } from '@/lib/teamHeadshots';
+import { Suspense } from 'react';
+import SkeletonCard from '@/components/SkeletonCard';
 
 export default async function MeetTheTeamPage() {
     const teamMembers = await getCustomPosts('team');
@@ -12,7 +14,7 @@ export default async function MeetTheTeamPage() {
     return (
         <div className="min-h-screen bg-brand-50">
             {/* Hero Section */}
-            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white py-20">
+            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white pt-28 md:pt-32 pb-20">
                 <div className="container mx-auto px-6 text-center">
                     <h1 className="text-5xl md:text-6xl font-serif font-medium mb-6 text-white drop-shadow-2xl">
                         Meet The Team
@@ -24,7 +26,7 @@ export default async function MeetTheTeamPage() {
             </AnimatedSection>
 
             {/* Team Grid */}
-            <AnimatedSection className="py-16 px-6">
+            <AnimatedSection className="py-20 px-6 bg-brand-50">
                 <div className="container mx-auto max-w-6xl">
                     <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {teamMembers.length > 0 ? (
@@ -47,6 +49,7 @@ export default async function MeetTheTeamPage() {
                                                     priority={index < 8}
                                                     quality={85}
                                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                                    loading={index < 8 ? 'eager' : 'lazy'}
                                                 />
                                             ) : (
                                                 <div className="w-full h-full bg-gradient-to-br from-brown-200 to-brown-300 flex items-center justify-center">

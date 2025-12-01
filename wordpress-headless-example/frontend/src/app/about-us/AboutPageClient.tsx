@@ -31,20 +31,20 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
     return (
         <>
             {/* Our Story Section - with 2010 team photo */}
-            <AnimatedSection className="py-20 px-6 bg-white">
+            <AnimatedSection className="py-24 md:py-32 px-6 bg-white">
                 <div className="container mx-auto max-w-6xl">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={stagger}
-                        className="grid md:grid-cols-2 gap-12 items-center"
+                        className="grid md:grid-cols-2 gap-16 items-center"
                     >
                         <motion.div variants={fadeInUp}>
-                            <TextReveal className="text-3xl md:text-4xl font-serif font-medium text-brand-900 mb-6">
+                            <TextReveal className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-brand-900 mb-8">
                                 Our Story
                             </TextReveal>
-                            <div className="space-y-4 text-brand-700 leading-relaxed">
+                            <div className="space-y-6 text-brand-700 leading-relaxed text-lg md:text-xl">
                                 <p>
                                     The Rooms was established in 2009 by Judith and Paul Spurr. Judith, a practising psychotherapist,
                                     brought the vision of a calm and welcoming therapeutic space to life – a vision you can still feel
@@ -74,19 +74,19 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
             </AnimatedSection>
 
             {/* Founder's Vision Section - with Judith's photo */}
-            <AnimatedSection className="py-20 px-6 bg-brand-50">
+            <AnimatedSection className="py-24 md:py-32 px-6 bg-brand-50">
                 <div className="container mx-auto max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-center mb-8"
+                        className="text-center mb-12"
                     >
-                        <TextReveal className="text-3xl md:text-4xl font-serif font-medium text-brand-900 mb-3 justify-center">
+                        <TextReveal className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-brand-900 mb-6 justify-center">
                             A Vision Brought to Life
                         </TextReveal>
-                        <p className="text-brand-600 text-sm md:text-base italic">
+                        <p className="text-brand-600 text-lg md:text-xl italic">
                             Judith Spurr, Founder
                         </p>
                     </motion.div>
@@ -114,7 +114,7 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
             </AnimatedSection>
 
             {/* Royal Visit Highlight */}
-            <AnimatedSection className="py-20 px-6 bg-gradient-to-br from-brand-800 to-brand-900 text-white relative overflow-hidden">
+            <AnimatedSection className="py-28 md:py-36 px-6 bg-gradient-to-br from-brand-800 to-brand-900 text-white relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                     <Image
                         src="/resources/Queen Mother_s Square.jpg"
@@ -130,10 +130,10 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <TextReveal className="text-3xl md:text-4xl font-serif font-medium mb-6 text-white justify-center">
+                        <TextReveal className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium mb-8 text-white justify-center">
                             A Royal Recognition
                         </TextReveal>
-                        <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
                             Over the years, The Rooms has welcomed a diverse range of visitors. In 2014, we had the honour of
                             a royal visit from King Charles (then Prince Charles, Duke of Cornwall) during his trip to Poundbury.
                             His interest in complementary health made the visit especially meaningful.
@@ -143,19 +143,19 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
             </AnimatedSection>
 
             {/* Our Space Gallery */}
-            <AnimatedSection className="py-20 px-6 bg-white">
+            <AnimatedSection className="py-24 md:py-32 px-6 bg-white">
                 <div className="container mx-auto max-w-6xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-center mb-12"
+                        className="text-center mb-16"
                     >
-                        <TextReveal className="text-3xl md:text-4xl font-serif font-medium text-brand-900 mb-4 justify-center">
+                        <TextReveal className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-brand-900 mb-6 justify-center">
                             Our Space
                         </TextReveal>
-                        <p className="text-brand-700 text-lg max-w-2xl mx-auto">
+                        <p className="text-brand-700 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
                             Step into our calm and welcoming therapeutic environment
                         </p>
                     </motion.div>
@@ -181,7 +181,7 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
                                             height={400}
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                             quality={85}
-                                            className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                                            className="w-full h-80 md:h-96 object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     );
                                 })()}
@@ -197,7 +197,7 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
             </AnimatedSection>
 
             {/* Feedback Section */}
-            <AnimatedSection className="py-20 px-6 bg-brand-50">
+            <AnimatedSection className="py-24 md:py-32 px-6 bg-brand-50">
                 <div className="container mx-auto max-w-4xl text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -205,10 +205,10 @@ export default function AboutPageClient({ galleryCategory = 'our-space', gallery
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <TextReveal className="text-3xl md:text-4xl font-serif font-medium text-brand-900 mb-6 justify-center">
+                        <TextReveal className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-brand-900 mb-8 justify-center">
                             Your Feedback Matters
                         </TextReveal>
-                        <p className="text-lg text-brand-700 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-xl md:text-2xl text-brand-700 max-w-3xl mx-auto leading-relaxed">
                             We always appreciate hearing from those who have used our clinic. If you've visited The Rooms, please
                             consider leaving us a review on Google – it helps others find the support they need and helps us
                             continue to grow and improve.

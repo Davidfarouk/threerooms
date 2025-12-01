@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ScrollProgress from '@/components/ScrollProgress';
 
 export const metadata: Metadata = {
     title: 'The Rooms Poundbury - Premium Wellness Clinic',
@@ -48,8 +49,9 @@ export default function RootLayout({
                 />
             </head>
             <body className="antialiased">
+                <ScrollProgress />
                 <Header />
-                <main className="pt-20">
+                <main className="pt-28 md:pt-32">
                     {children}
                 </main>
                 <Footer />

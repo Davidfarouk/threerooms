@@ -29,7 +29,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
         if (!servicesOffered) {
             return false;
         }
-        
+
         // Handle different data formats (array, single value, or comma-separated string)
         let serviceIds: number[] = [];
         if (Array.isArray(servicesOffered)) {
@@ -44,13 +44,30 @@ export default async function ServicePage({ params }: { params: { slug: string }
                 serviceIds = [id];
             }
         }
-        
+
         // Check if the current service ID is in the therapist's services_offered
         return serviceIds.includes(service.id);
     });
 
     return (
         <div className="min-h-screen bg-stone-50">
+            {/* Breadcrumbs */}
+            <AnimatedSection className="pt-28 md:pt-32 pb-4 px-6 bg-stone-50">
+                <div className="container mx-auto max-w-4xl">
+                    <nav className="flex items-center space-x-2 text-sm">
+                        <Link href="/" className="text-brand-600 hover:text-orange-500 transition-colors">
+                            Home
+                        </Link>
+                        <span className="text-brand-400">/</span>
+                        <Link href="/therapies" className="text-brand-600 hover:text-orange-500 transition-colors">
+                            Services
+                        </Link>
+                        <span className="text-brand-400">/</span>
+                        <span className="text-brand-800">{service.title.rendered}</span>
+                    </nav>
+                </div>
+            </AnimatedSection>
+
             {/* Hero Section */}
             <AnimatedSection className="bg-brand-800 text-white py-20">
                 <div className="container mx-auto px-6">
@@ -68,7 +85,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
             </AnimatedSection>
 
             {/* Content Section */}
-            <AnimatedSection className="py-16 px-6">
+            <AnimatedSection className="py-20 px-6 bg-brand-50">
                 <div className="container mx-auto max-w-4xl">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {/* Main Content */}
@@ -83,7 +100,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                                 <div className="mt-8 p-6 bg-brand-50 rounded-lg border border-brand-200">
                                     <h3 className="text-xl font-serif mb-4 text-brand-800">Therapeutic Approaches</h3>
                                     <ul className="space-y-2 text-stone-700">
-                                        {service.meta.therapeutic_approaches.split('\n').filter(line => line.trim()).map((approach, idx) => (
+                                        {service.meta.therapeutic_approaches.split('\n').filter((line: string) => line.trim() !== '').map((approach: string, idx: number) => (
                                             <li key={idx} className="flex items-start">
                                                 <span className="text-brand-600 mr-2">•</span>
                                                 <span>{approach.trim()}</span>
@@ -98,7 +115,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                                 <div className="mt-6 p-6 bg-stone-100 rounded-lg">
                                     <h3 className="text-xl font-serif mb-4 text-brand-800">Conditions Treated</h3>
                                     <ul className="space-y-2 text-stone-700">
-                                        {service.meta.conditions_treated.split('\n').filter(line => line.trim()).map((condition, idx) => (
+                                        {service.meta.conditions_treated.split('\n').filter((line: string) => line.trim() !== '').map((condition: string, idx: number) => (
                                             <li key={idx} className="flex items-start">
                                                 <span className="text-brand-600 mr-2">•</span>
                                                 <span>{condition.trim()}</span>
@@ -113,7 +130,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                                 <div className="mt-6 p-6 bg-white rounded-lg border border-stone-200">
                                     <h3 className="text-xl font-serif mb-4 text-brand-800">Services Offered</h3>
                                     <ul className="space-y-2 text-stone-700">
-                                        {service.meta.services_offered.split('\n').filter(line => line.trim()).map((service_item, idx) => (
+                                        {service.meta.services_offered.split('\n').filter((line: string) => line.trim() !== '').map((service_item: string, idx: number) => (
                                             <li key={idx} className="flex items-start">
                                                 <span className="text-brand-600 mr-2">•</span>
                                                 <span>{service_item.trim()}</span>
@@ -144,7 +161,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                             <div className="bg-white rounded-lg p-6 shadow-sm border border-stone-200 sticky top-24">
                                 <h3 className="text-xl font-serif mb-4">Book an Appointment</h3>
                                 <p className="text-stone-600 mb-6 text-sm">
-                                    To book an appointment, please contact the Practitioner directly using the details 
+                                    To book an appointment, please contact the Practitioner directly using the details
                                     found on Our Team page.
                                 </p>
                                 <AnimatedButton href="/meet-the-team" variant="primary" size="md" className="w-full">
@@ -156,7 +173,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                                         {services.slice(0, 3).map((s: any) => (
                                             s.id !== service.id && (
                                                 <li key={s.id}>
-                                                    <Link href={`/service/${s.slug}`} className="text-brand-600 hover:text-brand-800 transition-colors">
+                                                    <Link href={`/service/${s.slug}`} className="text-orange-500 hover:text-orange-600 transition-colors">
                                                         {s.title.rendered}
                                                     </Link>
                                                 </li>
@@ -172,10 +189,13 @@ export default async function ServicePage({ params }: { params: { slug: string }
 
             {/* Practitioners Section */}
             {relatedTeam.length > 0 && (
-                <AnimatedSection className="py-16 px-6 bg-white border-t border-stone-200">
+                <AnimatedSection className="py-20 px-6 bg-white border-t border-stone-200">
                     <div className="container mx-auto max-w-6xl">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-brand-800">Practitioners for this Service</h2>
+                            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-brand-900 relative inline-block">
+                                Practitioners for this Service
+                                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-orange-500"></span>
+                            </h2>
                             <p className="text-stone-600 max-w-2xl mx-auto">
                                 Click on any practitioner below to view their full profile, contact information, and book an appointment.
                             </p>
@@ -184,7 +204,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                             {relatedTeam.map((member: any, index: number) => {
                                 const headshotPath = getTeamHeadshot(member.slug, member.title.rendered);
                                 const initials = member.title.rendered.split(' ').map((n: string) => n[0]).join('').substring(0, 2);
-                                
+
                                 return (
                                     <Link
                                         key={member.id}
@@ -210,7 +230,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
                                                 )}
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <h3 className="text-xl font-serif mb-1 text-brand-800 group-hover:text-brand-600 transition-colors">
+                                                <h3 className="text-xl font-serif mb-1 text-brand-800 group-hover:text-orange-500 transition-colors">
                                                     {member.title.rendered}
                                                 </h3>
                                                 {member.meta?.position && (
@@ -219,12 +239,12 @@ export default async function ServicePage({ params }: { params: { slug: string }
                                             </div>
                                         </div>
                                         {member.excerpt?.rendered || member.content.rendered ? (
-                                            <div 
+                                            <div
                                                 className="text-stone-600 text-sm line-clamp-3 prose prose-sm max-w-none mb-4"
                                                 dangerouslySetInnerHTML={{ __html: (member.excerpt?.rendered || member.content.rendered).substring(0, 200) + '...' }}
                                             />
                                         ) : null}
-                                        <div className="flex items-center text-brand-600 text-sm font-medium group-hover:text-brand-800 transition-colors">
+                                        <div className="flex items-center text-orange-500 text-sm font-medium group-hover:text-orange-600 transition-colors">
                                             <span>View Profile</span>
                                             <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

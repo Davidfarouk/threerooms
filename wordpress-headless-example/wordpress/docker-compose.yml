@@ -33,6 +33,7 @@ services:
       WORDPRESS_DEBUG: 1
     volumes:
       - wordpress_data:/var/www/html
+      - ./plugins/the-rooms-architecture:/var/www/html/wp-content/plugins/the-rooms-architecture
     networks:
       - wordpress_network
 

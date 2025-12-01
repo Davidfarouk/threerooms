@@ -43,6 +43,30 @@ module.exports = {
                     900: '#38221B',      // Darkest Cocoa
                 },
                 success: '#10B981',      // Green
+                orange: {
+                    50: '#FEF5ED',       // Lightest Peach
+                    100: '#FDE8D4',      // Very Light Peach
+                    200: '#FBD0A9',      // Light Peach
+                    300: '#F9B87E',      // Peach
+                    400: '#F6A05F',      // Medium Peach
+                    500: '#D4A574',      // Muted Warm Orange/Peach (Primary Accent)
+                    600: '#C98A5F',      // Warm Orange/Peach
+                    700: '#B8754A',      // Deep Peach
+                    800: '#9A5F38',      // Dark Peach
+                    900: '#7A4A2A',      // Darkest Peach
+                },
+                teal: {
+                    50: '#F0F7F7',       // Lightest Teal
+                    100: '#D9ECEC',      // Very Light Teal
+                    200: '#B3D9D9',      // Light Teal
+                    300: '#8DC6C6',      // Teal
+                    400: '#7FA8A8',      // Muted Teal/Blue (Secondary Accent)
+                    500: '#6B9A9A',      // Muted Teal/Blue (Secondary Accent)
+                    600: '#5A7F7F',      // Medium Teal
+                    700: '#4A6666',      // Deep Teal
+                    800: '#3A4D4D',      // Dark Teal
+                    900: '#2A3333',      // Darkest Teal
+                },
             },
             fontFamily: {
                 sans: ['Outfit', 'sans-serif'],

@@ -74,7 +74,7 @@ export default async function HireRoomPage() {
     return (
         <div className="min-h-screen bg-brand-50">
             {/* Hero Section */}
-            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white py-20">
+            <AnimatedSection className="bg-gradient-to-br from-brand-800 to-brand-900 text-white pt-28 md:pt-32 pb-20">
                 <div className="container mx-auto px-6 text-center">
                     <TextReveal
                         className="text-5xl md:text-6xl font-serif font-medium mb-6 text-white drop-shadow-2xl justify-center"
@@ -90,7 +90,7 @@ export default async function HireRoomPage() {
             {/* Gallery Section - Removed due to duplicate images */}
 
             {/* Options Section */}
-            <AnimatedSection className="py-16 px-6">
+            <AnimatedSection className="py-20 px-6 bg-brand-50">
                 <div className="container mx-auto max-w-6xl">
                     <h2 className="text-4xl font-serif text-center mb-12 text-brand-900">Rental Options</h2>
                     <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">

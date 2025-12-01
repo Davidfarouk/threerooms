@@ -22,7 +22,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     return (
         <div className="min-h-screen bg-stone-50">
             {/* Hero Section */}
-            <AnimatedSection className="bg-brand-800 text-white py-20">
+            <AnimatedSection className="bg-brand-800 text-white pt-28 md:pt-32 pb-20">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl">
                         <div className="text-sm text-white mb-4 drop-shadow-md">
