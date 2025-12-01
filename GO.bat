@@ -93,6 +93,16 @@ docker exec wordpress_site php /var/www/html/import-existing-content.php
 echo [OK] Existing content imported
 echo.
 
+echo [6.5/9] Cleaning up any duplicate rental options...
+if exist "cleanup-duplicates.php" (
+    docker cp cleanup-duplicates.php wordpress_site:/var/www/html/cleanup-duplicates.php
+    docker exec wordpress_site php /var/www/html/cleanup-duplicates.php
+    echo [OK] Duplicates cleaned up
+) else (
+    echo [SKIP] Cleanup script not found, skipping
+)
+echo.
+
 echo [7/9] Linking images to content...
 docker cp link-images-to-content.php wordpress_site:/var/www/html/link-images-to-content.php
 docker exec wordpress_site php /var/www/html/link-images-to-content.php

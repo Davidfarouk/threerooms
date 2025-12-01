@@ -24,16 +24,17 @@ export default function Header() {
             <nav className="container mx-auto px-6 py-5 md:py-6">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-4">
-                        <Image
-                            src="/resources/Logos/The Rooms logo.jpg"
-                            alt="The Rooms Poundbury"
-                            width={160}
-                            height={55}
-                            className="h-12 md:h-14 w-auto object-contain"
-                            priority
-                        />
-                        <span className="text-base md:text-lg text-gray-300 hidden sm:block font-medium">Poundbury</span>
+                    <Link href="/" className="flex items-center group">
+                        <div className="bg-white rounded-lg px-4 py-2.5 shadow-xl border border-gray-200/50 transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]">
+                            <Image
+                                src="/resources/Logos/Header.png"
+                                alt="The Rooms Poundbury Complementary Health Clinic"
+                                width={300}
+                                height={80}
+                                className="h-12 md:h-14 lg:h-16 w-auto object-contain max-w-[260px] md:max-w-[300px]"
+                                priority
+                            />
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}

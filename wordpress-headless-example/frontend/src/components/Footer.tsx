@@ -10,13 +10,15 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     {/* Column 1: About */}
                     <div>
-                        <Image
-                            src="/resources/Logos/The Rooms logo.jpg"
-                            alt="The Rooms Poundbury"
-                            width={150}
-                            height={50}
-                            className="h-12 w-auto object-contain mb-4"
-                        />
+                        <div className="bg-white rounded-lg px-4 py-2.5 shadow-xl border border-gray-200/50 inline-block mb-4 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
+                            <Image
+                                src="/resources/Logos/Header.png"
+                                alt="The Rooms Poundbury Complementary Health Clinic"
+                                width={250}
+                                height={67}
+                                className="h-14 md:h-16 w-auto object-contain max-w-[240px]"
+                            />
+                        </div>
                         <p className="text-sm mb-6 text-gray-300 leading-relaxed">
                             A calm and welcoming therapeutic space in the heart of Poundbury, Dorchester.
                         </p>

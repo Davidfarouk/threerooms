@@ -5,12 +5,57 @@ import AnimatedButton from '@/components/AnimatedButton';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getTeamHeadshot } from '@/lib/teamHeadshots';
+import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
     const services = await getCustomPosts('service');
     return services.map((service: any) => ({
         slug: service.slug,
     }));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const services = await getCustomPosts('service');
+    const service = services.find((s: any) => s.slug === params.slug);
+    
+    if (!service) {
+        return {
+            title: 'Service Not Found',
+        };
+    }
+
+    const title = service.title.rendered;
+    const description = service.meta?.tagline || `Professional ${title} services in Poundbury, Dorchester. Find qualified therapists at The Rooms Poundbury.`;
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.theroomspoundbury.co.uk';
+
+    return {
+        title: `${title} | The Rooms Poundbury`,
+        description: description,
+        keywords: [
+            title.toLowerCase(),
+            `${title} Poundbury`,
+            `${title} Dorchester`,
+            'therapy Poundbury',
+            'wellness clinic',
+            'complementary health',
+        ],
+        openGraph: {
+            title: `${title} | The Rooms Poundbury`,
+            description: description,
+            url: `${baseUrl}/service/${params.slug}`,
+            images: service.featured_image_url ? [
+                {
+                    url: service.featured_image_url,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                }
+            ] : [],
+        },
+        alternates: {
+            canonical: `${baseUrl}/service/${params.slug}`,
+        },
+    };
 }
 
 export default async function ServicePage({ params }: { params: { slug: string } }) {
@@ -257,6 +302,41 @@ export default async function ServicePage({ params }: { params: { slug: string }
                     </div>
                 </AnimatedSection>
             )}
+
+            {/* Service Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "serviceType": service.title.rendered,
+                        "name": service.title.rendered,
+                        "description": service.meta?.tagline || service.title.rendered,
+                        "provider": {
+                            "@type": "LocalBusiness",
+                            "name": "The Rooms Poundbury",
+                            "email": "info@theroomspoundbury.co.uk",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "streetAddress": "1 Ringhill Street",
+                                "addressLocality": "Poundbury",
+                                "addressRegion": "Dorset",
+                                "postalCode": "DT1 3TL",
+                                "addressCountry": "GB"
+                            }
+                        },
+                        "areaServed": {
+                            "@type": "City",
+                            "name": "Poundbury"
+                        },
+                        "availableChannel": {
+                            "@type": "ServiceChannel",
+                            "serviceUrl": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.theroomspoundbury.co.uk'}/service/${params.slug}`
+                        }
+                    })
+                }}
+            />
         </div>
     );
 }

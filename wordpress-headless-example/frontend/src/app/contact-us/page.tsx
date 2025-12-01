@@ -3,6 +3,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedButton from '@/components/AnimatedButton';
 import TextReveal from '@/components/TextReveal';
 import Image from 'next/image';
+import ContactForm from '@/components/ContactForm';
 
 export default async function ContactPage() {
     const page = await getPageBySlug('contact-us');
@@ -67,67 +68,7 @@ export default async function ContactPage() {
                             </div>
 
                             {/* Send us a Message */}
-                            <div className="bg-white/90 rounded-lg p-6 shadow-sm border border-brown-100">
-                                <h3 className="text-2xl font-serif mb-4 text-brand-900">Send us a Message</h3>
-                                <form className="space-y-3">
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-brand-800 mb-2">
-                                            Name
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            className="w-full px-4 py-2 border border-brown-200 rounded-lg focus:ring-2 focus:ring-brown-500 focus:border-brown-500"
-                                            required
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-brand-800 mb-2">
-                                            Email
-                                        </label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            className="w-full px-4 py-2 border border-brown-200 rounded-lg focus:ring-2 focus:ring-brown-500 focus:border-brown-500"
-                                            required
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="phone" className="block text-sm font-medium text-brand-800 mb-2">
-                                            Phone Number
-                                        </label>
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            name="phone"
-                                            className="w-full px-4 py-2 border border-brown-200 rounded-lg focus:ring-2 focus:ring-brown-500 focus:border-brown-500"
-                                            placeholder="e.g., 01305 123456"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="message" className="block text-sm font-medium text-brand-800 mb-2">
-                                            Message
-                                        </label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            rows={5}
-                                            className="w-full px-4 py-2 border border-brown-200 rounded-lg focus:ring-2 focus:ring-brown-500 focus:border-brown-500"
-                                            required
-                                        />
-                                    </div>
-                                    <AnimatedButton
-                                        type="submit"
-                                        variant="primary"
-                                        size="lg"
-                                        className="w-full"
-                                    >
-                                        Send Message
-                                    </AnimatedButton>
-                                </form>
-                            </div>
+                            <ContactForm />
                         </div>
 
                         {/* Right Side - Image & Map */}

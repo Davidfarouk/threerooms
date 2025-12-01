@@ -7,12 +7,58 @@ import Image from 'next/image';
 import { getTeamHeadshot } from '@/lib/teamHeadshots';
 import ContactDropdown from '@/components/ContactDropdown';
 import { formatTeamContent } from '@/lib/formatContent';
+import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
     const team = await getCustomPosts('team');
     return team.map((member: any) => ({
         slug: member.slug,
     }));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const allTeam = await getCustomPosts('team');
+    const member = allTeam.find((t: any) => t.slug === params.slug);
+    
+    if (!member) {
+        return { title: 'Team Member Not Found' };
+    }
+
+    const name = member.title.rendered;
+    const position = member.meta?.position || 'Therapist';
+    const therapyType = member.meta?.type_of_therapy || 'wellness';
+    const description = `${position} specializing in ${therapyType} in Poundbury, Dorchester. ${member.meta?.specializations || 'Find qualified therapeutic services at The Rooms Poundbury.'}`;
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.theroomspoundbury.co.uk';
+
+    return {
+        title: `${name} | Therapist at The Rooms Poundbury`,
+        description: description,
+        keywords: [
+            name,
+            `${name} Poundbury`,
+            `${therapyType} Poundbury`,
+            `${therapyType} Dorchester`,
+            'therapist Poundbury',
+            position.toLowerCase(),
+        ],
+        openGraph: {
+            title: `${name} | ${position} at The Rooms Poundbury`,
+            description: description,
+            url: `${baseUrl}/team/${params.slug}`,
+            type: 'profile',
+            images: getTeamHeadshot(member.slug, name) ? [
+                {
+                    url: getTeamHeadshot(member.slug, name),
+                    width: 1200,
+                    height: 1200,
+                    alt: name,
+                }
+            ] : [],
+        },
+        alternates: {
+            canonical: `${baseUrl}/team/${params.slug}`,
+        },
+    };
 }
 
 export default async function TeamMemberPage({ params }: { params: { slug: string } }) {
@@ -244,6 +290,40 @@ export default async function TeamMemberPage({ params }: { params: { slug: strin
                     </div>
                 </div>
             </AnimatedSection>
+
+            {/* Person Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Person",
+                        "name": member.title.rendered,
+                        "jobTitle": member.meta?.position || "Therapist",
+                        "worksFor": {
+                            "@type": "LocalBusiness",
+                            "name": "The Rooms Poundbury",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Poundbury",
+                                "addressRegion": "Dorset",
+                                "addressCountry": "GB"
+                            }
+                        },
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Poundbury",
+                            "addressRegion": "Dorset",
+                            "addressCountry": "GB"
+                        },
+                        "email": member.meta?.email || undefined,
+                        "telephone": member.meta?.phone || undefined,
+                        "description": member.meta?.specializations || `${member.meta?.type_of_therapy || 'Therapeutic'} services in Poundbury, Dorchester.`,
+                        "image": getTeamHeadshot(member.slug, member.title.rendered) || undefined,
+                        "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.theroomspoundbury.co.uk'}/team/${params.slug}`
+                    })
+                }}
+            />
         </div>
     );
 }

@@ -28,17 +28,21 @@ $logos = [
     ['title' => 'Reflexology', 'alt' => 'Reflexology Accreditation', 'image' => 'reflexology.jpg', 'order' => 7],
 ];
 
+// Helper function to check for duplicate by title
+function check_post_exists_by_title($title, $post_type) {
+    global $wpdb;
+    $post_id = $wpdb->get_var($wpdb->prepare(
+        "SELECT ID FROM {$wpdb->posts} WHERE post_title = %s AND post_type = %s AND post_status != 'trash' LIMIT 1",
+        $title,
+        $post_type
+    ));
+    return $post_id ? true : false;
+}
+
 $logos_imported = 0;
 foreach ($logos as $logo_data) {
-    // Check if already exists
-    $existing = get_posts([
-        'post_type' => 'accreditation_logo',
-        'title' => $logo_data['title'],
-        'posts_per_page' => 1,
-        'post_status' => 'any',
-    ]);
-    
-    if (!empty($existing)) {
+    // Check if already exists (proper duplicate check)
+    if (check_post_exists_by_title($logo_data['title'], 'accreditation_logo')) {
         echo "  - Already exists: {$logo_data['title']}\n";
         continue;
     }
@@ -97,15 +101,8 @@ $gallery_items = [
 
 $gallery_imported = 0;
 foreach ($gallery_items as $item_data) {
-    // Check if already exists
-    $existing = get_posts([
-        'post_type' => 'gallery_item',
-        'title' => $item_data['title'],
-        'posts_per_page' => 1,
-        'post_status' => 'any',
-    ]);
-    
-    if (!empty($existing)) {
+    // Check if already exists (proper duplicate check)
+    if (check_post_exists_by_title($item_data['title'], 'gallery_item')) {
         echo "  - Already exists: {$item_data['title']}\n";
         continue;
     }
@@ -176,15 +173,8 @@ $rental_options = [
 
 $rental_imported = 0;
 foreach ($rental_options as $option_data) {
-    // Check if already exists
-    $existing = get_posts([
-        'post_type' => 'rental_option',
-        'title' => $option_data['title'],
-        'posts_per_page' => 1,
-        'post_status' => 'any',
-    ]);
-    
-    if (!empty($existing)) {
+    // Check if already exists (proper duplicate check)
+    if (check_post_exists_by_title($option_data['title'], 'rental_option')) {
         echo "  - Already exists: {$option_data['title']}\n";
         continue;
     }
