@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const therapyType = member.meta?.type_of_therapy || 'wellness';
     const description = `${position} specializing in ${therapyType} in Poundbury, Dorchester. ${member.meta?.specializations || 'Find qualified therapeutic services at The Rooms Poundbury.'}`;
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.theroomspoundbury.co.uk';
+    const headshotUrl = getTeamHeadshot(member.slug, name);
 
     return {
         title: `${name} | Therapist at The Rooms Poundbury`,
@@ -46,14 +47,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             description: description,
             url: `${baseUrl}/team/${params.slug}`,
             type: 'profile',
-            images: getTeamHeadshot(member.slug, name) ? [
+            images: headshotUrl ? [
                 {
-                    url: getTeamHeadshot(member.slug, name),
+                    url: headshotUrl,
                     width: 1200,
                     height: 1200,
                     alt: name,
                 }
-            ] : [],
+            ] : undefined,
         },
         alternates: {
             canonical: `${baseUrl}/team/${params.slug}`,
