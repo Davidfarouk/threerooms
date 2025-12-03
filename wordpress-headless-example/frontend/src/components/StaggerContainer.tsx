@@ -16,11 +16,12 @@ export default function StaggerContainer({
   children, 
   className = '',
   speed = 'normal',
-  threshold = 0.1
+  threshold = 0.05 // Lower default threshold for better mobile detection
 }: StaggerContainerProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold,
+    rootMargin: '0px 0px -20px 0px', // Less restrictive margin for mobile
   });
 
   const variants = {

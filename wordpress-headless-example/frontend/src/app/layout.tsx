@@ -5,6 +5,12 @@ import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
 
 export const metadata: Metadata = {
+    viewport: {
+        width: 'device-width',
+        initialScale: 1,
+        maximumScale: 5,
+        userScalable: true,
+    },
     title: {
         default: 'The Rooms Poundbury - Complementary Health Clinic',
         template: '%s | The Rooms Poundbury',

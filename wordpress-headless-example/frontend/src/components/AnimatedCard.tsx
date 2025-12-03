@@ -22,22 +22,22 @@ export default function AnimatedCard({
 }: AnimatedCardProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.15,
-    rootMargin: '-50px 0px',
+    threshold: 0.05, // Lower threshold for better mobile detection
+    rootMargin: '0px 0px -20px 0px', // Less restrictive margin
   });
 
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 40,
-      scale: 0.92
+      y: 30, // Reduced from 40
+      scale: 0.97 // Reduced from 0.92 to prevent overflow
     },
     visible: { 
       opacity: 1, 
       y: 0,
       scale: 1,
       transition: { 
-        duration: 0.7,
+        duration: 0.6, // Slightly faster
         delay,
         ease: [0.16, 1, 0.3, 1]
       }

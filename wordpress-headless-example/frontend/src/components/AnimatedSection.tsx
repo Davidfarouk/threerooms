@@ -20,62 +20,62 @@ export default function AnimatedSection({
 }: AnimatedSectionProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.15,
-    rootMargin: '-50px 0px',
+    threshold: 0.05, // Lower threshold for better mobile detection
+    rootMargin: '0px 0px -20px 0px', // Less restrictive margin, only bottom margin
   });
 
   const variants = {
     up: {
       hidden: { 
         opacity: 0, 
-        y: 60,
-        scale: 0.96
+        y: 40, // Reduced from 60 for less movement
+        scale: 0.98 // Reduced scale to prevent overflow issues
       },
       visible: { 
         opacity: 1, 
         y: 0,
         scale: 1,
         transition: { 
-          duration: 0.8, 
+          duration: 0.6, // Slightly faster
           delay,
           ease: [0.16, 1, 0.3, 1] // Custom easing for smoother feel
         }
       }
     },
     down: {
-      hidden: { opacity: 0, y: -60, scale: 0.96 },
+      hidden: { opacity: 0, y: -40, scale: 0.98 },
       visible: { 
         opacity: 1, 
         y: 0,
         scale: 1,
         transition: { 
-          duration: 0.8, 
+          duration: 0.6, 
           delay, 
           ease: [0.16, 1, 0.3, 1]
         }
       }
     },
     left: {
-      hidden: { opacity: 0, x: -60, scale: 0.96 },
+      hidden: { opacity: 0, x: -40, scale: 0.98 },
       visible: { 
         opacity: 1, 
         x: 0,
         scale: 1,
         transition: { 
-          duration: 0.8, 
+          duration: 0.6, 
           delay, 
           ease: [0.16, 1, 0.3, 1]
         }
       }
     },
     right: {
-      hidden: { opacity: 0, x: 60, scale: 0.96 },
+      hidden: { opacity: 0, x: 40, scale: 0.98 },
       visible: { 
         opacity: 1, 
         x: 0,
         scale: 1,
         transition: { 
-          duration: 0.8, 
+          duration: 0.6, 
           delay, 
           ease: [0.16, 1, 0.3, 1]
         }
