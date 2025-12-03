@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getCustomPosts, getPages } from '@/lib/wordpress';
+import { getCustomPosts, getPages, getPosts } from '@/lib/wordpress';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.theroomspoundbury.co.uk';
@@ -81,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }));
 
         // Get all blog posts
-        const blogPosts = await getCustomPosts('post');
+        const blogPosts = await getPosts();
         const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post: any) => ({
             url: `${baseUrl}/blog/${post.slug}`,
             lastModified: new Date(post.modified),
