@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { staggerContainer, staggerContainerFast, staggerContainerSlow } from '@/lib/animations';
 
 interface StaggerContainerProps {
@@ -24,6 +24,46 @@ export default function StaggerContainer({
     rootMargin: '0px 0px -20px 0px', // Less restrictive margin for mobile
   });
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Handle bfcache restoration - check if element is in viewport on mount
+  useEffect(() => {
+    if (ref && typeof window !== 'undefined') {
+      const checkVisibility = () => {
+        if (ref.current) {
+          const rect = ref.current.getBoundingClientRect();
+          const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+          if (isInViewport) {
+            setIsVisible(true);
+          }
+        }
+      };
+
+      // Check immediately
+      checkVisibility();
+
+      // Check after a short delay to handle bfcache restoration
+      const timeout = setTimeout(checkVisibility, 100);
+
+      // Handle page visibility change (bfcache restore)
+      const handleVisibilityChange = () => {
+        if (document.visibilityState === 'visible') {
+          setTimeout(checkVisibility, 50);
+        }
+      };
+
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+
+      return () => {
+        clearTimeout(timeout);
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      };
+    }
+  }, [ref]);
+
+  // Use inView OR isVisible (fallback for bfcache)
+  const shouldAnimate = inView || isVisible;
+
   const variants = {
     fast: staggerContainerFast,
     normal: staggerContainer,
@@ -34,7 +74,7 @@ export default function StaggerContainer({
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
+      animate={shouldAnimate ? 'visible' : 'hidden'}
       variants={variants[speed]}
       className={className}
     >
